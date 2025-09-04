@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HK7 Beauty Care - Cambodia</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* Custom styles to apply the Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfdfd;
+        }
+        /* Style for active navigation link */
+        .nav-link-active {
+            color: #ec4899; /* A pinkish color to match a beauty theme */
+            font-weight: 600;
+        }
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(236, 72, 153, 0.4);
+        }
+
+        /* Image Slider Animation */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+            animation: scroll 40s linear infinite;
+        }
+        .slider-container:hover .animate-scroll {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header Section -->
+    <header id="header" class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-gray-900">
+                HK7 Beauty Care
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-gray-600 hover:text-pink-500 transition duration-300 nav-link">Home</a>
+                <a href="#products" class="text-gray-600 hover:text-pink-500 transition duration-300 nav-link">Products</a>
+                <a href="#about" class="text-gray-600 hover:text-pink-500 transition duration-300 nav-link">About Us</a>
+                <a href="#gallery" class="text-gray-600 hover:text-pink-500 transition duration-300 nav-link">Gallery</a>
+                <a href="#contact" class="text-gray-600 hover:text-pink-500 transition duration-300 nav-link">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 pb-4">
+            <a href="#home" class="block py-2 text-gray-600 hover:text-pink-500 nav-link">Home</a>
+            <a href="#products" class="block py-2 text-gray-600 hover:text-pink-500 nav-link">Products</a>
+            <a href="#about" class="block py-2 text-gray-600 hover:text-pink-500 nav-link">About Us</a>
+            <a href="#gallery" class="block py-2 text-gray-600 hover:text-pink-500 nav-link">Gallery</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-pink-500 nav-link">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative h-[60vh] md:h-[80vh] bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/fce7f3/db2777?text=HK7+Beauty+Care');">
+            <div class="absolute inset-0 bg-black/30"></div>
+            <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4 animate-fade-in-down">Discover Your Natural Beauty</h1>
+                <p class="text-lg md:text-xl max-w-2xl mb-8 animate-fade-in-up">Premium quality products designed to bring out the best in you.</p>
+                <a href="#products" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg btn-primary">
+                    Shop Now
+                </a>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Products</h2>
+                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Product items will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-16 md:py-24 bg-pink-50">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x400/e9d5ff/a855f7?text=Our+Brand" alt="About HK7 Beauty Care" class="rounded-lg shadow-xl w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">About HK7 Beauty Care</h2>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Welcome to HK7 Beauty Care, where we believe in the power of nature and science to create skincare that truly works. Our mission is to provide high-quality, effective, and safe beauty products that enhance your natural radiance.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Crafted with care in Cambodia, each product is a testament to our commitment to excellence and our passion for helping you feel confident and beautiful in your own skin.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Slider Section -->
+        <section id="gallery" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Gallery</h2>
+                <div class="relative w-full overflow-hidden slider-container group">
+                    <div id="slider-track" class="flex w-max animate-scroll">
+                        <!-- Images will be injected here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
+                <!-- Brand Info -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">HK7 Beauty Care</h3>
+                    <p class="text-gray-400">Your trusted partner in beauty and skincare.</p>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>
+                            <i class="fas fa-phone mr-2"></i> 010 855 102
+                        </li>
+                        <li>
+                            <i class="fas fa-phone mr-2"></i> 092 890 080
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/hk7168cambodia" target="_blank" class="hover:text-pink-400 transition-colors">
+                                <i class="fab fa-facebook-f mr-2"></i> HK7 Cambodia Facebook
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-pink-400 transition-colors">Home</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-pink-400 transition-colors">Products</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-pink-400 transition-colors">About Us</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-pink-400 transition-colors">Gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6 mt-8 text-center text-gray-500">
+                <p>&copy; 2025 HK7 Beauty Care. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Product Data ---
+            const products = [
+                { name: "Cushion", image: "https://placehold.co/400x400/fecdd3/9f1239?text=Cushion" },
+                { name: "Sun block", image: "https://placehold.co/400x400/fecdd3/9f1239?text=Sun+block" },
+                { name: "BB cream", image: "https://placehold.co/400x400/fecdd3/9f1239?text=BB+cream" },
+                { name: "Night cream", image: "https://placehold.co/400x400/fecdd3/9f1239?text=Night+cream" },
+                { name: "Serum Hya", image: "https://placehold.co/400x400/fecdd3/9f1239?text=Serum+Hya" },
+                { name: "Mask Hk7", image: "https://placehold.co/400x400/fecdd3/9f1239?text=Mask+Hk7" },
+                { name: "Foam organic", image: "https://placehold.co/400x400/fecdd3/9f1239?text=Foam+organic" },
+                { name: "Remover Oil", image: "https://placehold.co/400x400/fecdd3/9f1239?text=Remover+Oil" },
+                { name: "Coffee Hk7", image: "https://placehold.co/400x400/fbcfe8/9d174d?text=Coffee+Hk7" },
+                { name: "Kimiko", image: "https://placehold.co/400x400/fbcfe8/9d174d?text=Kimiko" },
+                { name: "Collagen Pink", image: "https://placehold.co/400x400/fbcfe8/9d174d?text=Collagen+Pink" },
+                { name: "Crystal Collagen", image: "https://placehold.co/400x400/fbcfe8/9d174d?text=Crystal+Collagen" }
+            ];
+
+            const productGrid = document.getElementById('product-grid');
+            if (productGrid) {
+                products.forEach(product => {
+                    const productCard = `
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden product-card flex flex-col">
+                            <div class="relative pb-[100%]">
+                                <img src="${product.image}" alt="${product.name}" class="absolute h-full w-full object-cover">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-semibold mb-4">${product.name}</h3>
+                                <div class="mt-auto flex items-center space-x-2">
+                                    <a href="https://www.facebook.com/hk7168cambodia" target="_blank" class="flex-1 text-center bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-900 transition-colors duration-300">
+                                        Chat
+                                    </a>
+                                    <button class="flex-1 text-center bg-pink-500 text-white py-2 px-4 rounded-md hover:bg-pink-600 transition-colors duration-300">
+                                        Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    productGrid.innerHTML += productCard;
+                });
+            }
+
+            // --- Gallery Slider Data & Logic ---
+            const galleryImages = [
+                { src: "https://placehold.co/600x400/fecaca/7f1d1d?text=Beauty+Model+1", alt: "Beauty Model 1" },
+                { src: "https://placehold.co/600x400/fed7aa/854d0e?text=Skincare+Product", alt: "Skincare Product" },
+                { src: "https://placehold.co/600x400/d9f99d/3f6212?text=Natural+Ingredients", alt: "Natural Ingredients" },
+                { src: "https://placehold.co/600x400/bfdbfe/1e3a8a?text=Glowing+Skin", alt: "Glowing Skin" },
+                { src: "https://placehold.co/600x400/ddd6fe/4c1d95?text=HK7+Lifestyle", alt: "HK7 Lifestyle" },
+                { src: "https://placehold.co/600x400/fbcfe8/86198f?text=Self-care", alt: "Self-care Moment" }
+            ];
+
+            const sliderTrack = document.getElementById('slider-track');
+            if (sliderTrack) {
+                // Populate initial images
+                galleryImages.forEach(image => {
+                    sliderTrack.innerHTML += `
+                        <div class="flex-shrink-0 w-64 md:w-80 p-2">
+                            <img src="${image.src}" alt="${image.alt}" class="w-full h-auto rounded-lg shadow-md">
+                        </div>
+                    `;
+                });
+                // Duplicate images for seamless loop
+                galleryImages.forEach(image => {
+                    sliderTrack.innerHTML += `
+                        <div class="flex-shrink-0 w-64 md:w-80 p-2">
+                            <img src="${image.src}" alt="${image.alt}" class="w-full h-auto rounded-lg shadow-md">
+                        </div>
+                    `;
+                });
+            }
+
+
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // --- Close mobile menu when a link is clicked ---
+            const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+
+            // --- Active Navigation Link on Scroll ---
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                 sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 60) { // 60 is header height
+                        current = section.getAttribute('id');
+                    }
+                });
+                if (!current && window.pageYOffset < 200) {
+                   current = 'home';
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('nav-link-active');
+                    const linkHref = link.getAttribute('href').substring(1);
+                    if (linkHref === current) {
+                        link.classList.add('nav-link-active');
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
+
