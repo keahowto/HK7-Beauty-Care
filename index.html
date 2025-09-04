@@ -42,17 +42,45 @@
             box-shadow: 0 4px 12px rgba(236, 72, 153, 0.4);
         }
 
-        /* Image Slider Animation */
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        /* New Image Slideshow Styles */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 1rem;
         }
-        .animate-scroll {
-            animation: scroll 40s linear infinite;
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
         }
-        .slider-container:hover .animate-scroll {
-            animation-play-state: paused;
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
         }
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        .slider-button:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .prev-button { left: 1rem; }
+        .next-button { right: 1rem; }
     </style>
 </head>
 <body class="text-gray-800">
@@ -65,9 +93,9 @@
             </a>
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#home" class="text-gray-600 hover:text-pink-500 transition duration-300 nav-link">Home</a>
+                <a href="#gallery" class="text-gray-600 hover:text-pink-500 transition duration-300 nav-link">Gallery</a>
                 <a href="#products" class="text-gray-600 hover:text-pink-500 transition duration-300 nav-link">Products</a>
                 <a href="#about" class="text-gray-600 hover:text-pink-500 transition duration-300 nav-link">About Us</a>
-                <a href="#gallery" class="text-gray-600 hover:text-pink-500 transition duration-300 nav-link">Gallery</a>
                 <a href="#contact" class="text-gray-600 hover:text-pink-500 transition duration-300 nav-link">Contact</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden text-2xl">
@@ -77,9 +105,9 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white px-6 pb-4">
             <a href="#home" class="block py-2 text-gray-600 hover:text-pink-500 nav-link">Home</a>
+            <a href="#gallery" class="block py-2 text-gray-600 hover:text-pink-500 nav-link">Gallery</a>
             <a href="#products" class="block py-2 text-gray-600 hover:text-pink-500 nav-link">Products</a>
             <a href="#about" class="block py-2 text-gray-600 hover:text-pink-500 nav-link">About Us</a>
-            <a href="#gallery" class="block py-2 text-gray-600 hover:text-pink-500 nav-link">Gallery</a>
             <a href="#contact" class="block py-2 text-gray-600 hover:text-pink-500 nav-link">Contact</a>
         </div>
     </header>
@@ -97,8 +125,22 @@
             </div>
         </section>
 
+        <!-- Gallery Slider Section -->
+        <section id="gallery" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Gallery</h2>
+                <div class="slider-container shadow-lg">
+                    <div id="slider-track" class="slider-track">
+                        <!-- Images will be injected here by JavaScript -->
+                    </div>
+                    <button id="prev-button" class="slider-button prev-button"><i class="fas fa-chevron-left"></i></button>
+                    <button id="next-button" class="slider-button next-button"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
         <!-- Products Section -->
-        <section id="products" class="py-16 md:py-24 bg-white">
+        <section id="products" class="py-16 md:py-24 bg-pink-50">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Products</h2>
                 <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -108,7 +150,7 @@
         </section>
 
         <!-- About Us Section -->
-        <section id="about" class="py-16 md:py-24 bg-pink-50">
+        <section id="about" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col md:flex-row items-center gap-12">
                     <div class="md:w-1/2">
@@ -122,18 +164,6 @@
                         <p class="text-gray-600 leading-relaxed">
                             Crafted with care in Cambodia, each product is a testament to our commitment to excellence and our passion for helping you feel confident and beautiful in your own skin.
                         </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery Slider Section -->
-        <section id="gallery" class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Gallery</h2>
-                <div class="relative w-full overflow-hidden slider-container group">
-                    <div id="slider-track" class="flex w-max animate-scroll">
-                        <!-- Images will be injected here by JavaScript -->
                     </div>
                 </div>
             </div>
@@ -174,9 +204,9 @@
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
                         <li><a href="#home" class="text-gray-400 hover:text-pink-400 transition-colors">Home</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-pink-400 transition-colors">Gallery</a></li>
                         <li><a href="#products" class="text-gray-400 hover:text-pink-400 transition-colors">Products</a></li>
                         <li><a href="#about" class="text-gray-400 hover:text-pink-400 transition-colors">About Us</a></li>
-                        <li><a href="#gallery" class="text-gray-400 hover:text-pink-400 transition-colors">Gallery</a></li>
                     </ul>
                 </div>
             </div>
@@ -230,36 +260,69 @@
                 });
             }
 
-            // --- Gallery Slider Data & Logic ---
+            // --- Gallery Slideshow Data & Logic ---
             const galleryImages = [
-                { src: "https://placehold.co/600x400/fecaca/7f1d1d?text=Beauty+Model+1", alt: "Beauty Model 1" },
-                { src: "https://placehold.co/600x400/fed7aa/854d0e?text=Skincare+Product", alt: "Skincare Product" },
-                { src: "https://placehold.co/600x400/d9f99d/3f6212?text=Natural+Ingredients", alt: "Natural Ingredients" },
-                { src: "https://placehold.co/600x400/bfdbfe/1e3a8a?text=Glowing+Skin", alt: "Glowing Skin" },
-                { src: "https://placehold.co/600x400/ddd6fe/4c1d95?text=HK7+Lifestyle", alt: "HK7 Lifestyle" },
-                { src: "https://placehold.co/600x400/fbcfe8/86198f?text=Self-care", alt: "Self-care Moment" }
+                { src: "https://placehold.co/900x500/fecaca/7f1d1d?text=Beauty+Image+1", alt: "Beauty Image 1" },
+                { src: "https://placehold.co/900x500/fed7aa/854d0e?text=Beauty+Image+2", alt: "Beauty Image 2" },
+                { src: "https://placehold.co/900x500/d9f99d/3f6212?text=Beauty+Image+3", alt: "Beauty Image 3" },
+                { src: "https://placehold.co/900x500/bfdbfe/1e3a8a?text=Beauty+Image+4", alt: "Beauty Image 4" },
+                { src: "https://placehold.co/900x500/ddd6fe/4c1d95?text=Beauty+Image+5", alt: "Beauty Image 5" },
             ];
 
             const sliderTrack = document.getElementById('slider-track');
+            const prevButton = document.getElementById('prev-button');
+            const nextButton = document.getElementById('next-button');
+            
             if (sliderTrack) {
-                // Populate initial images
-                galleryImages.forEach(image => {
-                    sliderTrack.innerHTML += `
-                        <div class="flex-shrink-0 w-64 md:w-80 p-2">
-                            <img src="${image.src}" alt="${image.alt}" class="w-full h-auto rounded-lg shadow-md">
-                        </div>
-                    `;
-                });
-                // Duplicate images for seamless loop
-                galleryImages.forEach(image => {
-                    sliderTrack.innerHTML += `
-                        <div class="flex-shrink-0 w-64 md:w-80 p-2">
-                            <img src="${image.src}" alt="${image.alt}" class="w-full h-auto rounded-lg shadow-md">
-                        </div>
-                    `;
-                });
-            }
+                let currentIndex = 0;
+                let autoPlayInterval;
 
+                galleryImages.forEach(image => {
+                    sliderTrack.innerHTML += `
+                        <div class="slide aspect-[16/9]">
+                            <img src="${image.src}" alt="${image.alt}" class="w-full h-full object-cover">
+                        </div>
+                    `;
+                });
+
+                const updateSliderPosition = () => {
+                    sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+                };
+
+                const moveToNextSlide = () => {
+                    currentIndex = (currentIndex + 1) % galleryImages.length;
+                    updateSliderPosition();
+                };
+
+                const moveToPrevSlide = () => {
+                    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+                    updateSliderPosition();
+                };
+
+                const startAutoPlay = () => {
+                    stopAutoPlay(); // Prevent multiple intervals
+                    autoPlayInterval = setInterval(moveToNextSlide, 4000); // Change slide every 4 seconds
+                };
+
+                const stopAutoPlay = () => {
+                    clearInterval(autoPlayInterval);
+                };
+
+                nextButton.addEventListener('click', () => {
+                    moveToNextSlide();
+                    startAutoPlay(); // Reset timer on manual click
+                });
+
+                prevButton.addEventListener('click', () => {
+                    moveToPrevSlide();
+                    startAutoPlay(); // Reset timer on manual click
+                });
+
+                sliderTrack.parentElement.addEventListener('mouseenter', stopAutoPlay);
+                sliderTrack.parentElement.addEventListener('mouseleave', startAutoPlay);
+
+                startAutoPlay();
+            }
 
             // --- Mobile Menu Toggle ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -285,7 +348,7 @@
                 let current = '';
                  sections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    if (pageYOffset >= sectionTop - 60) { // 60 is header height
+                    if (pageYOffset >= sectionTop - 70) { // Adjust for header height
                         current = section.getAttribute('id');
                     }
                 });
