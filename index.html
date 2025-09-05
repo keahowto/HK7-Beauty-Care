@@ -17,14 +17,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
-        /* Custom styles to apply the Inter font */
+        /* Custom styles */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #fdfdfd;
         }
-        /* Style for active navigation link */
         .nav-link-active {
-            color: #ec4899; /* A pinkish color to match a beauty theme */
+            color: #ec4899;
             font-weight: 600;
         }
         .product-card {
@@ -42,7 +41,7 @@
             box-shadow: 0 4px 12px rgba(236, 72, 153, 0.4);
         }
 
-        /* New Image Slideshow Styles */
+        /* Slideshow Styles */
         .slider-container {
             position: relative;
             width: 100%;
@@ -81,6 +80,18 @@
         }
         .prev-button { left: 1rem; }
         .next-button { right: 1rem; }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .thumbnail-image {
+            transition: border-color 0.3s ease;
+        }
+        
     </style>
 </head>
 <body class="text-gray-800">
@@ -88,25 +99,24 @@
     <!-- Header Section -->
     <header id="header" class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold text-gray-900">
-                HK7 Beauty Care
+            <a href="#home">
+                <img src="HK7 LOGO.png" alt="HK7 Beauty Care Logo" class="h-14 w-auto">
             </a>
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#home" class="text-gray-600 hover:text-pink-500 transition duration-300 nav-link">Home</a>
                 <a href="#gallery" class="text-gray-600 hover:text-pink-500 transition duration-300 nav-link">Gallery</a>
                 <a href="#products" class="text-gray-600 hover:text-pink-500 transition duration-300 nav-link">Products</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-pink-500 transition duration-300 nav-link">Reviews</a>
                 <a href="#about" class="text-gray-600 hover:text-pink-500 transition duration-300 nav-link">About Us</a>
                 <a href="#contact" class="text-gray-600 hover:text-pink-500 transition duration-300 nav-link">Contact</a>
             </nav>
-            <button id="mobile-menu-button" class="md:hidden text-2xl">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button id="mobile-menu-button" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
         </div>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white px-6 pb-4">
             <a href="#home" class="block py-2 text-gray-600 hover:text-pink-500 nav-link">Home</a>
             <a href="#gallery" class="block py-2 text-gray-600 hover:text-pink-500 nav-link">Gallery</a>
             <a href="#products" class="block py-2 text-gray-600 hover:text-pink-500 nav-link">Products</a>
+            <a href="#testimonials" class="block py-2 text-gray-600 hover:text-pink-500 nav-link">Reviews</a>
             <a href="#about" class="block py-2 text-gray-600 hover:text-pink-500 nav-link">About Us</a>
             <a href="#contact" class="block py-2 text-gray-600 hover:text-pink-500 nav-link">Contact</a>
         </div>
@@ -114,14 +124,12 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="relative h-[60vh] md:h-[80vh] bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/fce7f3/db2777?text=HK7+Beauty+Care');">
+        <section id="home" class="relative h-[60vh] md:h-[80vh] bg-cover bg-center" style="background-image: url('Coverhk7.jpg'); background-position: center 30%;">
             <div class="absolute inset-0 bg-black/30"></div>
             <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4">
-                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4 animate-fade-in-down">Discover Your Natural Beauty</h1>
-                <p class="text-lg md:text-xl max-w-2xl mb-8 animate-fade-in-up">Premium quality products designed to bring out the best in you.</p>
-                <a href="#products" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg btn-primary">
-                    Shop Now
-                </a>
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Discover Your Natural Beauty</h1>
+                <p class="text-lg md:text-xl max-w-2xl mb-8" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Premium quality products designed to bring out the best in you.</p>
+                <a href="#products" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg btn-primary">Shop Now</a>
             </div>
         </section>
 
@@ -130,12 +138,18 @@
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Gallery</h2>
                 <div class="slider-container shadow-lg">
-                    <div id="slider-track" class="slider-track">
-                        <!-- Images will be injected here by JavaScript -->
-                    </div>
+                    <div id="slider-track" class="slider-track"></div>
                     <button id="prev-button" class="slider-button prev-button"><i class="fas fa-chevron-left"></i></button>
                     <button id="next-button" class="slider-button next-button"><i class="fas fa-chevron-right"></i></button>
                 </div>
+            </div>
+        </section>
+        
+        <!-- Promotion Banner -->
+        <section id="promo" class="bg-pink-500 text-white">
+            <div class="container mx-auto px-6 py-8 text-center">
+                <h3 class="text-2xl md:text-3xl font-bold mb-2">✨ Special September Promotion! ✨</h3>
+                <p class="text-lg">Get a FREE Serum Hya with every purchase over $50. Limited time only!</p>
             </div>
         </section>
 
@@ -143,69 +157,58 @@
         <section id="products" class="py-16 md:py-24 bg-pink-50">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Products</h2>
-                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Product items will be injected here by JavaScript -->
-                </div>
+                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">What Our Customers Say</h2>
+                <div id="testimonial-grid" class="grid grid-cols-1 max-w-3xl mx-auto gap-8"></div>
             </div>
         </section>
 
         <!-- About Us Section -->
-        <section id="about" class="py-16 md:py-24 bg-white">
+        <section id="about" class="py-16 md:py-24 bg-pink-50">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col md:flex-row items-center gap-12">
                     <div class="md:w-1/2">
-                        <img src="https://placehold.co/600x400/e9d5ff/a855f7?text=Our+Brand" alt="About HK7 Beauty Care" class="rounded-lg shadow-xl w-full">
+                        <img src="Coverhk7.jpg" alt="About HK7 Beauty Care" class="rounded-lg shadow-xl w-full">
                     </div>
                     <div class="md:w-1/2">
                         <h2 class="text-3xl md:text-4xl font-bold mb-4">About HK7 Beauty Care</h2>
-                        <p class="text-gray-600 leading-relaxed mb-4">
-                            Welcome to HK7 Beauty Care, where we believe in the power of nature and science to create skincare that truly works. Our mission is to provide high-quality, effective, and safe beauty products that enhance your natural radiance.
-                        </p>
-                        <p class="text-gray-600 leading-relaxed">
-                            Crafted with care in Cambodia, each product is a testament to our commitment to excellence and our passion for helping you feel confident and beautiful in your own skin.
-                        </p>
+                        <p class="text-gray-600 leading-relaxed mb-4">Welcome to HK7 Beauty Care, where we believe in the power of nature and science to create skincare that truly works. Our mission is to provide high-quality, effective, and safe beauty products that enhance your natural radiance.</p>
+                        <p class="text-gray-600 leading-relaxed">Crafted with care in Cambodia, each product is a testament to our commitment to excellence and our passion for helping you feel confident and beautiful in your own skin.</p>
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
 
     <!-- Footer Section -->
     <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
-                <!-- Brand Info -->
                 <div>
                     <h3 class="text-2xl font-bold mb-4">HK7 Beauty Care</h3>
                     <p class="text-gray-400">Your trusted partner in beauty and skincare.</p>
                 </div>
-
-                <!-- Contact Info -->
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li>
-                            <i class="fas fa-phone mr-2"></i> 010 855 102
-                        </li>
-                        <li>
-                            <i class="fas fa-phone mr-2"></i> 092 890 080
-                        </li>
-                        <li>
-                            <a href="https://www.facebook.com/hk7168cambodia" target="_blank" class="hover:text-pink-400 transition-colors">
-                                <i class="fab fa-facebook-f mr-2"></i> HK7 Cambodia Facebook
-                            </a>
-                        </li>
+                        <li><i class="fas fa-phone mr-2"></i> 010 855 102</li>
+                        <li><i class="fas fa-phone mr-2"></i> 092 890 80</li>
+                        <li><a href="https://www.facebook.com/hk7168cambodia" target="_blank" class="hover:text-pink-400 transition-colors"><i class="fab fa-facebook-f mr-2"></i> HK7 Cambodia Facebook</a></li>
                     </ul>
                 </div>
-
-                <!-- Quick Links -->
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
                         <li><a href="#home" class="text-gray-400 hover:text-pink-400 transition-colors">Home</a></li>
                         <li><a href="#gallery" class="text-gray-400 hover:text-pink-400 transition-colors">Gallery</a></li>
                         <li><a href="#products" class="text-gray-400 hover:text-pink-400 transition-colors">Products</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-pink-400 transition-colors">Reviews</a></li>
                         <li><a href="#about" class="text-gray-400 hover:text-pink-400 transition-colors">About Us</a></li>
                     </ul>
                 </div>
@@ -215,156 +218,379 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Product Details Modal -->
+    <div id="product-modal" class="modal-overlay fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 hidden opacity-0">
+        <div class="modal-content bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto transform scale-95 opacity-0">
+            <div class="p-6 md:p-8">
+                <button id="close-modal-button" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <img id="modal-product-image" src="" alt="Product Image" class="w-full h-auto rounded-lg shadow-md mb-4">
+                        <div id="modal-product-thumbnails" class="flex items-center gap-2 overflow-x-auto">
+                            <!-- Thumbnails will be generated by JS here -->
+                        </div>
+                    </div>
+                    <div>
+                        <h2 id="modal-product-name" class="text-3xl font-bold mb-4"></h2>
+                        <p id="modal-product-description" class="text-gray-600 mb-6"></p>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold mb-2 text-pink-600">Key Ingredients</h3>
+                            <p id="modal-product-ingredients" class="text-gray-600"></p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2 text-pink-600">How to Use</h3>
+                            <p id="modal-product-howtouse" class="text-gray-600"></p>
+                        </div>
+                        
+                        <div class="mt-8">
+                             <a href="https://www.facebook.com/hk7168cambodia" target="_blank" class="w-full text-center bg-gray-800 text-white py-3 px-6 rounded-lg hover:bg-gray-900 transition-colors duration-300 inline-block">
+                                <i class="fab fa-facebook-messenger mr-2"></i> Chat to Order
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // --- Product Data ---
+            // --- Data Definitions ---
             const products = [
-                { name: "Cushion", image: "https://placehold.co/400x400/fecdd3/9f1239?text=Cushion" },
-                { name: "Sun block", image: "https://placehold.co/400x400/fecdd3/9f1239?text=Sun+block" },
-                { name: "BB cream", image: "https://placehold.co/400x400/fecdd3/9f1239?text=BB+cream" },
-                { name: "Night cream", image: "https://placehold.co/400x400/fecdd3/9f1239?text=Night+cream" },
-                { name: "Serum Hya", image: "https://placehold.co/400x400/fecdd3/9f1239?text=Serum+Hya" },
-                { name: "Mask Hk7", image: "https://placehold.co/400x400/fecdd3/9f1239?text=Mask+Hk7" },
-                { name: "Foam organic", image: "https://placehold.co/400x400/fecdd3/9f1239?text=Foam+organic" },
-                { name: "Remover Oil", image: "https://placehold.co/400x400/fecdd3/9f1239?text=Remover+Oil" },
-                { name: "Coffee Hk7", image: "https://placehold.co/400x400/fbcfe8/9d174d?text=Coffee+Hk7" },
-                { name: "Kimiko", image: "https://placehold.co/400x400/fbcfe8/9d174d?text=Kimiko" },
-                { name: "Collagen Pink", image: "https://placehold.co/400x400/fbcfe8/9d174d?text=Collagen+Pink" },
-                { name: "Crystal Collagen", image: "https://placehold.co/400x400/fbcfe8/9d174d?text=Crystal+Collagen" }
+                { 
+                    name: "Cushion", 
+                    images: [
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Cushion+1",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Cushion+2",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Cushion+3",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Cushion+4",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Cushion+5"
+                    ],
+                    description: "A lightweight cushion foundation that provides a flawless, natural-looking finish while hydrating the skin.", 
+                    ingredients: "Niacinamide, Hyaluronic Acid, Titanium Dioxide", 
+                    howToUse: "Press the puff applicator into the cushion and gently pat onto the face. Apply a second layer for more coverage." 
+                },
+                { 
+                    name: "Sun block", 
+                    images: [
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Sun+Block+1",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Sun+Block+2",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Sun+Block+3",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Sun+Block+4",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Sun+Block+5"
+                    ],
+                    description: "High-protection, non-greasy sunblock that defends against UVA and UVB rays without leaving a white cast.", 
+                    ingredients: "Zinc Oxide, Vitamin E, Aloe Vera", 
+                    howToUse: "Apply generously to all exposed skin 15 minutes before sun exposure. Reapply every 2 hours." 
+                },
+                { 
+                    name: "BB cream", 
+                    images: [
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=BB+Cream+1",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=BB+Cream+2",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=BB+Cream+3",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=BB+Cream+4",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=BB+Cream+5"
+                    ],
+                    description: "All-in-one beauty balm that corrects complexion, hydrates, and protects skin for a radiant, even-toned look.", 
+                    ingredients: "Glycerin, Arbutin, Green Tea Extract", 
+                    howToUse: "Squeeze a small amount and blend evenly over the face using fingertips or a makeup sponge." 
+                },
+                { 
+                    name: "Night cream", 
+                    images: [
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Night+Cream+1",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Night+Cream+2",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Night+Cream+3",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Night+Cream+4",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Night+Cream+5"
+                    ],
+                    description: "A rich, restorative night cream that works overnight to repair and rejuvenate the skin, reducing signs of aging.", 
+                    ingredients: "Retinol, Peptides, Shea Butter", 
+                    howToUse: "After cleansing and serum, apply an even layer to the face and neck before sleeping." 
+                },
+                { 
+                    name: "Serum Hya", 
+                    images: [
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Serum+Hya+1",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Serum+Hya+2",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Serum+Hya+3",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Serum+Hya+4",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Serum+Hya+5"
+                    ],
+                    description: "An intensely hydrating hyaluronic acid serum that plumps skin, smooths fine lines, and boosts radiance.", 
+                    ingredients: "Multi-molecular Hyaluronic Acid, Vitamin B5", 
+                    howToUse: "Apply 2-3 drops to a clean face, morning and night, before moisturizing." 
+                },
+                { 
+                    name: "Mask Hk7", 
+                    images: [
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Mask+Hk7+1",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Mask+Hk7+2",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Mask+Hk7+3",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Mask+Hk7+4",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Mask+Hk7+5"
+                    ],
+                    description: "A soothing and purifying clay mask that detoxifies pores and brightens the complexion without over-drying.", 
+                    ingredients: "Kaolin Clay, Centella Asiatica, Witch Hazel", 
+                    howToUse: "Apply a thin layer to clean skin, avoiding eyes. Leave for 10-15 mins and rinse with warm water." 
+                },
+                { 
+                    name: "Foam organic", 
+                    images: [
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Foam+1",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Foam+2",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Foam+3",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Foam+4",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Foam+5"
+                    ],
+                    description: "A gentle, organic foaming cleanser that effectively removes impurities while maintaining the skin's natural moisture balance.", 
+                    ingredients: "Organic Aloe Vera, Chamomile Extract, Coconut Oil", 
+                    howToUse: "Pump 1-2 times and massage foam onto damp skin. Rinse thoroughly." 
+                },
+                { 
+                    name: "Remover Oil", 
+                    images: [
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Remover+1",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Remover+2",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Remover+3",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Remover+4",
+                        "https://placehold.co/600x600/fecdd3/9f1239?text=Remover+5"
+                    ],
+                    description: "A powerful yet gentle cleansing oil that melts away makeup, sunscreen, and dirt, leaving skin soft and clean.", 
+                    ingredients: "Jojoba Oil, Grapeseed Oil, Vitamin E", 
+                    howToUse: "Massage 2-3 pumps onto dry skin. Add water to emulsify, then rinse completely." 
+                },
+                { 
+                    name: "Coffee Hk7", 
+                    images: [
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Coffee+1",
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Coffee+2",
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Coffee+3",
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Coffee+4",
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Coffee+5"
+                    ],
+                    description: "A slimming and beautifying coffee blend designed to boost metabolism and promote healthy skin from within.", 
+                    ingredients: "Arabica Coffee, Collagen Peptide, Garcinia Cambogia", 
+                    howToUse: "Dissolve one sachet in hot water. Enjoy once a day, preferably in the morning." 
+                },
+                { 
+                    name: "Kimiko", 
+                    images: [
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Kimiko+1",
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Kimiko+2",
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Kimiko+3",
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Kimiko+4",
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Kimiko+5"
+                    ],
+                    description: "A premium supplement for skin brightening and anti-aging, packed with powerful antioxidants.", 
+                    ingredients: "Glutathione, Vitamin C, Fish Collagen", 
+                    howToUse: "Take one capsule daily with water." 
+                },
+                { 
+                    name: "Collagen Pink", 
+                    images: [
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Collagen+1",
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Collagen+2",
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Collagen+3",
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Collagen+4",
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Collagen+5"
+                    ],
+                    description: "A delicious collagen drink that supports skin elasticity, hydration, and overall youthful appearance.", 
+                    ingredients: "Marine Collagen, Strawberry Extract, Vitamin C", 
+                    howToUse: "Mix one sachet with water and drink daily." 
+                },
+                { 
+                    name: "Crystal Collagen", 
+                    images: [
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Crystal+1",
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Crystal+2",
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Crystal+3",
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Crystal+4",
+                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Crystal+5"
+                    ],
+                    description: "Advanced collagen jelly for firm, supple, and glowing skin. A convenient and tasty beauty supplement.", 
+                    ingredients: "Hydrolyzed Collagen, Royal Jelly, Pomegranate Extract", 
+                    howToUse: "Consume one jelly strip per day." 
+                }
+            ];
+            
+            const galleryImages = [
+                { src: "https://placehold.co/900x500/fecaca/7f1d1d?text=Beauty+Shot+1", alt: "Beauty Image 1" },
+                { src: "https://placehold.co/900x500/fed7aa/854d0e?text=Skincare+Texture", alt: "Beauty Image 2" },
+                { src: "https://placehold.co/900x500/d9f99d/3f6212?text=Natural+Ingredients", alt: "Beauty Image 3" },
+                { src: "https://placehold.co/900x500/bfdbfe/1e3a8a?text=Model+with+Product", alt: "Beauty Image 4" },
+                { src: "https://placehold.co/900x500/ddd6fe/4c1d95?text=Product+Lineup", alt: "Beauty Image 5" },
+            ];
+            
+            const testimonials = [
+                { name: "Sreynith", image: "https://placehold.co/100x100/e0e7ff/3730a3?text=S", quote: "The Night Cream is amazing! My skin feels so soft and looks brighter every morning. Highly recommend!", time: "2h ago" },
+                { name: "Pisey", image: "https://placehold.co/100x100/d1fae5/059669?text=P", quote: "I love the Sun Block. It's not sticky at all and works perfectly under my makeup. It's my new daily essential.", time: "1d ago" },
+                { name: "Bopha", image: "https://placehold.co/100x100/fef9c3/b45309?text=B", quote: "HK7's Cushion gives such a natural glow. The coverage is just right for me. Will definitely buy again!", time: "3d ago" }
             ];
 
+            // --- Dynamic Content Population ---
+
+            // Populate Products
             const productGrid = document.getElementById('product-grid');
             if (productGrid) {
-                products.forEach(product => {
-                    const productCard = `
+                products.forEach((product, index) => {
+                    productGrid.innerHTML += `
                         <div class="bg-white rounded-lg shadow-md overflow-hidden product-card flex flex-col">
-                            <div class="relative pb-[100%]">
-                                <img src="${product.image}" alt="${product.name}" class="absolute h-full w-full object-cover">
-                            </div>
+                            <div class="relative pb-[100%]"><img src="${product.images[0]}" alt="${product.name}" class="absolute h-full w-full object-cover"></div>
                             <div class="p-6 flex flex-col flex-grow">
                                 <h3 class="text-xl font-semibold mb-4">${product.name}</h3>
                                 <div class="mt-auto flex items-center space-x-2">
-                                    <a href="https://www.facebook.com/hk7168cambodia" target="_blank" class="flex-1 text-center bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-900 transition-colors duration-300">
-                                        Chat
-                                    </a>
-                                    <button class="flex-1 text-center bg-pink-500 text-white py-2 px-4 rounded-md hover:bg-pink-600 transition-colors duration-300">
-                                        Details
-                                    </button>
+                                    <a href="https://www.facebook.com/hk7168cambodia" target="_blank" class="flex-1 text-center bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-900 transition-colors duration-300">Chat</a>
+                                    <button data-index="${index}" class="details-button flex-1 text-center bg-pink-500 text-white py-2 px-4 rounded-md hover:bg-pink-600 transition-colors duration-300">Details</button>
                                 </div>
                             </div>
                         </div>
                     `;
-                    productGrid.innerHTML += productCard;
                 });
             }
 
-            // --- Gallery Slideshow Data & Logic ---
-            const galleryImages = [
-                { src: "https://placehold.co/900x500/fecaca/7f1d1d?text=Beauty+Image+1", alt: "Beauty Image 1" },
-                { src: "https://placehold.co/900x500/fed7aa/854d0e?text=Beauty+Image+2", alt: "Beauty Image 2" },
-                { src: "https://placehold.co/900x500/d9f99d/3f6212?text=Beauty+Image+3", alt: "Beauty Image 3" },
-                { src: "https://placehold.co/900x500/bfdbfe/1e3a8a?text=Beauty+Image+4", alt: "Beauty Image 4" },
-                { src: "https://placehold.co/900x500/ddd6fe/4c1d95?text=Beauty+Image+5", alt: "Beauty Image 5" },
-            ];
-
-            const sliderTrack = document.getElementById('slider-track');
-            const prevButton = document.getElementById('prev-button');
-            const nextButton = document.getElementById('next-button');
-            
-            if (sliderTrack) {
-                let currentIndex = 0;
-                let autoPlayInterval;
-
-                galleryImages.forEach(image => {
-                    sliderTrack.innerHTML += `
-                        <div class="slide aspect-[16/9]">
-                            <img src="${image.src}" alt="${image.alt}" class="w-full h-full object-cover">
+            // Populate Testimonials
+            const testimonialGrid = document.getElementById('testimonial-grid');
+            if (testimonialGrid) {
+                testimonials.forEach(testimonial => {
+                    testimonialGrid.innerHTML += `
+                        <div class="flex items-start space-x-3">
+                            <img src="${testimonial.image}" alt="${testimonial.name}" class="w-10 h-10 rounded-full mt-1">
+                            <div class="flex-1">
+                                <div class="bg-gray-100 rounded-xl p-3">
+                                    <p class="font-semibold text-gray-800">${testimonial.name}</p>
+                                    <p class="text-gray-700">${testimonial.quote}</p>
+                                </div>
+                                <div class="text-xs text-gray-500 mt-1 px-3 flex items-center space-x-3">
+                                    <button class="hover:underline font-semibold">Like</button>
+                                    <span>·</span>
+                                    <button class="hover:underline font-semibold">Reply</button>
+                                    <span>·</span>
+                                    <span>${testimonial.time}</span>
+                                </div>
+                            </div>
                         </div>
                     `;
                 });
-
-                const updateSliderPosition = () => {
-                    sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
-                };
-
-                const moveToNextSlide = () => {
-                    currentIndex = (currentIndex + 1) % galleryImages.length;
-                    updateSliderPosition();
-                };
-
-                const moveToPrevSlide = () => {
-                    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-                    updateSliderPosition();
-                };
-
-                const startAutoPlay = () => {
-                    stopAutoPlay(); // Prevent multiple intervals
-                    autoPlayInterval = setInterval(moveToNextSlide, 4000); // Change slide every 4 seconds
-                };
-
-                const stopAutoPlay = () => {
-                    clearInterval(autoPlayInterval);
-                };
-
-                nextButton.addEventListener('click', () => {
-                    moveToNextSlide();
-                    startAutoPlay(); // Reset timer on manual click
+            }
+            
+            // Populate Gallery
+            const sliderTrack = document.getElementById('slider-track');
+            if(sliderTrack){
+                 galleryImages.forEach(image => {
+                    sliderTrack.innerHTML += `<div class="slide aspect-[16/9]"><img src="${image.src}" alt="${image.alt}" class="w-full h-full object-cover"></div>`;
                 });
+            }
 
-                prevButton.addEventListener('click', () => {
-                    moveToPrevSlide();
-                    startAutoPlay(); // Reset timer on manual click
-                });
-
+            // --- Interactive Logic ---
+            
+            // Gallery Slideshow Logic
+            const prevButton = document.getElementById('prev-button');
+            const nextButton = document.getElementById('next-button');
+            if (sliderTrack && prevButton && nextButton) {
+                let currentIndex = 0;
+                let autoPlayInterval;
+                const updateSlider = () => sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+                const nextSlide = () => { currentIndex = (currentIndex + 1) % galleryImages.length; updateSlider(); };
+                const prevSlide = () => { currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length; updateSlider(); };
+                const startAutoPlay = () => { stopAutoPlay(); autoPlayInterval = setInterval(nextSlide, 4000); };
+                const stopAutoPlay = () => clearInterval(autoPlayInterval);
+                nextButton.addEventListener('click', () => { nextSlide(); startAutoPlay(); });
+                prevButton.addEventListener('click', () => { prevSlide(); startAutoPlay(); });
                 sliderTrack.parentElement.addEventListener('mouseenter', stopAutoPlay);
                 sliderTrack.parentElement.addEventListener('mouseleave', startAutoPlay);
-
                 startAutoPlay();
             }
 
-            // --- Mobile Menu Toggle ---
+            // Product Modal Logic
+            const modal = document.getElementById('product-modal');
+            const closeModalButton = document.getElementById('close-modal-button');
+            const detailButtons = document.querySelectorAll('.details-button');
+
+            const openModal = (product) => {
+                const mainImage = document.getElementById('modal-product-image');
+                const thumbnailsContainer = document.getElementById('modal-product-thumbnails');
+
+                mainImage.src = product.images[0];
+                thumbnailsContainer.innerHTML = ''; 
+
+                product.images.forEach((imgSrc, index) => {
+                    const thumb = document.createElement('img');
+                    thumb.src = imgSrc;
+                    thumb.alt = `${product.name} thumbnail ${index + 1}`;
+                    thumb.className = 'w-16 h-16 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-pink-500 thumbnail-image';
+                    
+                    if (index === 0) {
+                        thumb.classList.add('border-pink-500');
+                    }
+
+                    thumb.addEventListener('click', () => {
+                        mainImage.src = imgSrc;
+                        thumbnailsContainer.querySelectorAll('img').forEach(t => t.classList.remove('border-pink-500'));
+                        thumb.classList.add('border-pink-500');
+                    });
+
+                    thumbnailsContainer.appendChild(thumb);
+                });
+
+                document.getElementById('modal-product-name').textContent = product.name;
+                document.getElementById('modal-product-description').textContent = product.description;
+                document.getElementById('modal-product-ingredients').textContent = product.ingredients;
+                document.getElementById('modal-product-howtouse').textContent = product.howToUse;
+                
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    modal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0');
+                }, 10);
+            };
+
+            const closeModal = () => {
+                modal.querySelector('.modal-content').classList.add('scale-95', 'opacity-0');
+                modal.classList.add('opacity-0');
+                setTimeout(() => modal.classList.add('hidden'), 300);
+            };
+
+            detailButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const productIndex = button.dataset.index;
+                    openModal(products[productIndex]);
+                });
+            });
+
+            closeModalButton.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+
+            // Mobile Menu Logic
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            
-            // --- Close mobile menu when a link is clicked ---
-            const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
-            mobileNavLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
             });
 
-
-            // --- Active Navigation Link on Scroll ---
+            // Active Nav Link on Scroll
             const sections = document.querySelectorAll('main section');
             const navLinks = document.querySelectorAll('.nav-link');
-
             window.addEventListener('scroll', () => {
-                let current = '';
-                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (pageYOffset >= sectionTop - 70) { // Adjust for header height
-                        current = section.getAttribute('id');
-                    }
+                let current = 'home';
+                sections.forEach(section => {
+                    if (pageYOffset >= section.offsetTop - 70) current = section.getAttribute('id');
                 });
-                if (!current && window.pageYOffset < 200) {
-                   current = 'home';
-                }
-
                 navLinks.forEach(link => {
                     link.classList.remove('nav-link-active');
-                    const linkHref = link.getAttribute('href').substring(1);
-                    if (linkHref === current) {
+                    if (link.getAttribute('href').substring(1) === current) {
                         link.classList.add('nav-link-active');
                     }
                 });
             });
-
         });
     </script>
 </body>
