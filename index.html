@@ -124,9 +124,12 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="relative h-[60vh] md:h-[80vh] bg-cover bg-center" style="background-image: url('Coverhk7.jpg'); background-position: center 30%;">
-            <div class="absolute inset-0 bg-black/30"></div>
-            <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4">
+        <section id="home" class="relative h-[60vh] md:h-[80vh] overflow-hidden">
+            <!-- Image Tag for better responsive control -->
+            <img src="Coverhk7.jpg" alt="HK7 Beauty Care Cover" class="absolute inset-0 z-0 h-full w-full object-cover object-bottom md:object-[center_30%]">
+            
+            <div class="absolute inset-0 bg-black/30 z-10"></div>
+            <div class="relative z-20 flex flex-col items-center justify-center h-full text-center text-white p-4">
                 <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Discover Your Natural Beauty</h1>
                 <p class="text-lg md:text-xl max-w-2xl mb-8" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Premium quality products designed to bring out the best in you.</p>
                 <a href="#products" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg btn-primary">Shop Now</a>
