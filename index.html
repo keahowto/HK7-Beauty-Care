@@ -139,15 +139,13 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="relative h-[60vh] md:h-[80vh] overflow-hidden bg-white">
+        <section id="home" class="relative h-[60vh] md:h-[80vh] overflow-hidden bg-black">
             <!-- Hero slider container -->
             <div id="hero-slider-track" class="absolute inset-0 z-0">
                 <!-- Slider images will be populated by JS here -->
             </div>
-            <!-- This overlay is now hidden on mobile (screens smaller than md) -->
-            <div class="absolute inset-0 bg-black/30 z-10 hidden md:block"></div>
-            <!-- Text color is dark on mobile and white on desktop -->
-            <div class="relative z-20 flex flex-col items-center justify-center h-full text-center text-gray-800 md:text-white p-4">
+            <div class="absolute inset-0 bg-black/30 z-10"></div>
+            <div class="relative z-20 flex flex-col items-center justify-center h-full text-center text-white p-4">
                 <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);"></h1>
                 <p class="text-lg md:text-xl max-w-2xl mb-8" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);"></p>
             </div>
@@ -289,7 +287,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2">
                 <!-- Image Section -->
                 <div class="hidden md:block">
-                     <img src="https://placehold.co/800x1000/111827/f59e0b?text=Promotion\nImage" alt="Promotion" class="w-full h-full object-cover">
+                     <img src="Announcement.jpg" alt="Promotion" class="w-full h-full object-cover">
                 </div>
                 <!-- Content Section -->
                 <div class="p-8 md:p-10 flex flex-col items-center justify-center text-center relative">
@@ -371,7 +369,7 @@
                         "SerumHya3.jpg",
                         
                     ],
-                    description: "✅ អត្ថប្រយោជន៍:<br>- ឯកទេស​បំបាត់​មុខមុនយូរខែយូរឆ្នាំ មុនកប់​ មុខខ្ទុះ​ មុនដំបូក​មុន​ក្បាល​ខ្មៅ​<BR>-ជួយបំបាត់​ជាំ​ នឹងអាចម៍​រុយយូរឆ្នាំ<br>- បំបាត់​ស្នាម​អុជខ្មៅ​ ជួយ​បន្តឹង​ស្បែក​មុខ​<br>- ជួយ​បង្រួម​រន្ធញើស​ បំបាត់​ស្នាម​ជ្រាវ​ជ្រួញ​<br>- ​ឃេីញ​ប្រសិទ្ធភាព​តាំង​ពី​ប្រេី​ឈុត​ដំបូង​", 
+                    description: "✅ អត្ថប្រយោជន៍:<br>- ឯកទេស​បំបាត់​មុខមុនយូរខែយូរឆ្នាំ មុនកប់​ មុខខ្ទុះ​ មុនដំបូក​មុន​ក្បាល​ខ្មៅ​<BR>-ជួយបំបាត់​ជាំ​ នឹងអាចម៍​រុយយូរឆ្នាំ<br>- បំបាត់​ស្នាម​អុជខ្μៅ​ ជួយ​បន្តឹង​ស្បែក​មុខ​<br>- ជួយ​បង្រួម​រន្ធញើស​ បំបាត់​ស្នាម​ជ្រាវ​ជ្រួញ​<br>- ​ឃេីញ​ប្រសិទ្ធភាព​តាំង​ពី​ប្រេី​ឈុត​ដំបូង​", 
                     videoUrl: "https://www.facebook.com/reel/1413000023043696"
                 },
                 { 
@@ -468,18 +466,54 @@
             ];
             
             const heroSliderImages = [
-                { src: "Coverhk7.jpg", alt: "Cover 1" },
-                { src: "https://placehold.co/1920x1080/1a1a1a/eab308?text=Luxury+Beauty", alt: "Cover 2" },
-                { src: "https://placehold.co/1920x1080/000000/f59e0b?text=HK7+Collection", alt: "Cover 3" },
-                { src: "https://placehold.co/1920x1080/2b2b2b/d97706?text=Natural+Ingredients", alt: "Cover 4" },
-                { src: "https://placehold.co/1920x1080/0a0a0a/fbbf24?text=Feel+Confident", alt: "Cover 5" }
+                { 
+                    desktopSrc: "Coverhk7.jpg", 
+                    mobileSrc: "https://placehold.co/900x1600/000000/ffffff?text=Mobile+Cover+1",
+                    alt: "Cover 1" 
+                },
+                { 
+                    desktopSrc: "https://placehold.co/1920x1080/1a1a1a/eab308?text=Luxury+Beauty", 
+                    mobileSrc: "https://placehold.co/900x1600/1a1a1a/eab308?text=Mobile+Luxury",
+                    alt: "Cover 2" 
+                },
+                { 
+                    desktopSrc: "https://placehold.co/1920x1080/000000/f59e0b?text=HK7+Collection", 
+                    mobileSrc: "https://placehold.co/900x1600/000000/f59e0b?text=Mobile+Collection",
+                    alt: "Cover 3" 
+                },
+                { 
+                    desktopSrc: "https://placehold.co/1920x1080/2b2b2b/d97706?text=Natural+Ingredients", 
+                    mobileSrc: "https://placehold.co/900x1600/2b2b2b/d97706?text=Mobile+Natural",
+                    alt: "Cover 4" 
+                },
+                { 
+                    desktopSrc: "https://placehold.co/1920x1080/0a0a0a/fbbf24?text=Feel+Confident", 
+                    mobileSrc: "https://placehold.co/900x1600/0a0a0a/fbbf24?text=Mobile+Confident",
+                    alt: "Cover 5" 
+                }
             ];
 
             const galleryImages = [
-                { src: "poster_cushion1.jpg", alt: "Gallery Image 1" },
-                { src: "poster_cushion2.jpg", alt: "Gallery Image 2" },
-                { src: "https://placehold.co/900x1200/d1d5db/374151?text=Gallery+3", alt: "Gallery Image 3" },
-                { src: "https://placehold.co/900x1200/9ca3af/4b5563?text=Gallery+4", alt: "Gallery Image 4" },
+                { 
+                    desktopSrc: "poster_cushion2.jpg", 
+                    mobileSrc: "poster_cushion2.jpg", 
+                    alt: "Gallery Image 1" 
+                },
+                { 
+                    desktopSrc: "poster_cushion1.jpg", 
+                    mobileSrc: "poster_cushion1.jpg", 
+                    alt: "Gallery Image 2" 
+                },
+                { 
+                    desktopSrc: "https://placehold.co/1200x900/d1d5db/374151?text=Desktop+View", 
+                    mobileSrc: "https://placehold.co/900x1200/d1d5db/374151?text=Mobile+View", 
+                    alt: "Gallery Image 3" 
+                },
+                { 
+                    desktopSrc: "https://placehold.co/1200x900/9ca3af/4b5563?text=Desktop+View", 
+                    mobileSrc: "https://placehold.co/900x1200/9ca3af/4b5563?text=Mobile+View", 
+                    alt: "Gallery Image 4" 
+                },
             ];
             
             const testimonials = [
@@ -495,7 +529,10 @@
                  heroSliderImages.forEach(image => {
                     heroSliderTrack.innerHTML += `
                         <div class="slide">
-                            <img src="${image.src}" alt="${image.alt}" class="h-full w-full object-contain md:object-cover">
+                            <picture>
+                                <source media="(max-width: 767px)" srcset="${image.mobileSrc}">
+                                <img src="${image.desktopSrc}" alt="${image.alt}" class="h-full w-full object-cover">
+                            </picture>
                         </div>
                     `;
                 });
@@ -556,7 +593,14 @@
             const sliderTrack = document.getElementById('slider-track');
             if(sliderTrack){
                  galleryImages.forEach(image => {
-                    sliderTrack.innerHTML += `<div class="slide h-[70vh]"><img src="${image.src}" alt="${image.alt}" class="w-full h-full object-cover"></div>`;
+                    sliderTrack.innerHTML += `
+                    <div class="slide h-[70vh]">
+                        <picture>
+                            <source media="(max-width: 767px)" srcset="${image.mobileSrc}">
+                            <img src="${image.desktopSrc}" alt="${image.alt}" class="w-full h-full object-cover">
+                        </picture>
+                    </div>
+                    `;
                 });
             }
 
