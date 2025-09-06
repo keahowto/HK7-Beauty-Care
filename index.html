@@ -92,7 +92,7 @@
             transition: border-color 0.3s ease;
         }
 
-        /* NEW: Hero Slider Styles */
+        /* Hero Slider Styles */
         #hero-slider-track .slide {
             position: absolute;
             top: 0;
@@ -140,7 +140,7 @@
     <main>
         <!-- Hero Section -->
         <section id="home" class="relative h-[60vh] md:h-[80vh] overflow-hidden">
-            <!-- NEW: Hero slider container -->
+            <!-- Hero slider container -->
             <div id="hero-slider-track" class="absolute inset-0 z-0">
                 <!-- Slider images will be populated by JS here -->
             </div>
@@ -456,7 +456,6 @@
                 }
             ];
             
-            // NEW: Hero slider images
             const heroSliderImages = [
                 { src: "Coverhk7.jpg", alt: "Cover 1" },
                 { src: "https://placehold.co/1920x1080/1a1a1a/eab308?text=Luxury+Beauty", alt: "Cover 2" },
@@ -480,7 +479,6 @@
 
             // --- Dynamic Content Population ---
 
-             // NEW: Populate Hero Slider
             const heroSliderTrack = document.getElementById('hero-slider-track');
             if(heroSliderTrack){
                  heroSliderImages.forEach(image => {
@@ -499,7 +497,9 @@
                     const discountedPrice = product.originalPrice * (1 - product.discount / 100);
                     productGrid.innerHTML += `
                         <div class="bg-white rounded-lg shadow-md overflow-hidden product-card flex flex-col">
-                            <div class="relative pb-[100%]"><img src="${product.images[0]}" alt="${product.name}" class="absolute h-full w-full object-cover"></div>
+                            <div data-index="${index}" class="product-image-container relative pb-[100%] cursor-pointer">
+                                <img src="${product.images[0]}" alt="${product.name}" class="absolute h-full w-full object-cover">
+                            </div>
                             <div class="p-6 flex flex-col flex-grow">
                                 <h3 class="text-xl font-semibold mb-2">${product.name}</h3>
                                 <div class="my-3 text-lg">
@@ -552,7 +552,7 @@
 
             // --- Interactive Logic ---
             
-            // NEW: Hero Slider Logic (Fade animation)
+            // Hero Slider Logic (Fade animation)
             const heroTrack = document.getElementById('hero-slider-track');
             if (heroTrack) {
                 const slides = heroTrack.querySelectorAll('.slide');
@@ -659,13 +659,29 @@
                 modal.classList.add('opacity-0');
                 setTimeout(() => modal.classList.add('hidden'), 300);
             };
-
-            document.querySelectorAll('.details-button').forEach(button => {
-                button.addEventListener('click', () => {
-                    const productIndex = button.dataset.index;
-                    openModal(products[productIndex]);
+            
+            // Re-select buttons and images after dynamic population
+            function addProductEventListeners() {
+                document.querySelectorAll('.details-button').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const productIndex = button.dataset.index;
+                        openModal(products[productIndex]);
+                    });
                 });
-            });
+
+                document.querySelectorAll('.product-image-container').forEach(container => {
+                    container.addEventListener('click', () => {
+                        const productIndex = container.dataset.index;
+                        openModal(products[productIndex]);
+                    });
+                });
+            }
+
+            // Initial call after populating products
+            if (productGrid) {
+                 addProductEventListeners();
+            }
+
 
             closeModalButton.addEventListener('click', closeModal);
             modal.addEventListener('click', (e) => {
