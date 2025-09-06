@@ -150,6 +150,7 @@
             <div class="relative z-20 flex flex-col items-center justify-center h-full text-center text-gray-800 md:text-white p-4">
                 <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);"></h1>
                 <p class="text-lg md:text-xl max-w-2xl mb-8" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);"></p>
+                <a href="#products" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full text-lg btn-primary">Shop Now</a>
             </div>
         </section>
 
@@ -598,7 +599,35 @@
             // Product Modal Logic
             const modal = document.getElementById('product-modal');
             const closeModalButton = document.getElementById('close-modal-button');
+
+            // --- BACK BUTTON FIX START ---
             
+            // This function handles only the VISUAL part of closing the modal
+            const visuallyCloseModal = () => {
+                if (modal.classList.contains('hidden')) return; // Already hidden
+                modal.querySelector('.modal-content').classList.add('scale-95', 'opacity-0');
+                modal.classList.add('opacity-0');
+                setTimeout(() => modal.classList.add('hidden'), 300);
+            };
+
+            // This function INITIATES the closing process (by user click)
+            const closeModal = () => {
+                // If a hash exists, going back in history will trigger hashchange, which closes the modal
+                if(location.hash === '#details') {
+                    history.back();
+                } else {
+                    // Fallback if no hash is present
+                    visuallyCloseModal();
+                }
+            };
+
+            // Listen for browser back button action
+            window.addEventListener('hashchange', function() {
+                if(location.hash !== '#details') {
+                    visuallyCloseModal();
+                }
+            });
+
             const openModal = (product) => {
                 const mainImage = document.getElementById('modal-product-image');
                 const thumbnailsContainer = document.getElementById('modal-product-thumbnails');
@@ -654,13 +683,13 @@
                     modal.classList.remove('opacity-0');
                     modal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0');
                 }, 10);
+                
+                // Add a hash to the URL to create a history entry
+                location.hash = 'details';
             };
 
-            const closeModal = () => {
-                modal.querySelector('.modal-content').classList.add('scale-95', 'opacity-0');
-                modal.classList.add('opacity-0');
-                setTimeout(() => modal.classList.add('hidden'), 300);
-            };
+            // --- BACK BUTTON FIX END ---
+
             
             function addProductEventListeners() {
                 document.querySelectorAll('.details-button').forEach(button => {
