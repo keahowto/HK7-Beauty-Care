@@ -139,7 +139,7 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="relative h-[60vh] md:h-[80vh] overflow-hidden">
+        <section id="home" class="relative h-[60vh] md:h-[80vh] overflow-hidden bg-black">
             <!-- Hero slider container -->
             <div id="hero-slider-track" class="absolute inset-0 z-0">
                 <!-- Slider images will be populated by JS here -->
@@ -484,7 +484,7 @@
                  heroSliderImages.forEach(image => {
                     heroSliderTrack.innerHTML += `
                         <div class="slide">
-                            <img src="${image.src}" alt="${image.alt}" class="h-full w-full object-cover object-bottom md:object-center">
+                            <img src="${image.src}" alt="${image.alt}" class="h-full w-full object-contain md:object-cover">
                         </div>
                     `;
                 });
@@ -660,7 +660,6 @@
                 setTimeout(() => modal.classList.add('hidden'), 300);
             };
             
-            // Re-select buttons and images after dynamic population
             function addProductEventListeners() {
                 document.querySelectorAll('.details-button').forEach(button => {
                     button.addEventListener('click', () => {
@@ -677,11 +676,9 @@
                 });
             }
 
-            // Initial call after populating products
             if (productGrid) {
                  addProductEventListeners();
             }
-
 
             closeModalButton.addEventListener('click', closeModal);
             modal.addEventListener('click', (e) => {
