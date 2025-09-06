@@ -283,6 +283,27 @@
         </div>
     </div>
 
+    <!-- NEW: Announcement Modal -->
+    <div id="announcement-modal" class="modal-overlay fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[60] hidden opacity-0">
+        <div class="modal-content bg-gray-800 text-white rounded-xl shadow-2xl w-full max-w-4xl overflow-hidden transform scale-95 opacity-0">
+            <div class="grid grid-cols-1 md:grid-cols-2">
+                <!-- Image Section -->
+                <div class="hidden md:block">
+                     <img src="Announcement.jpg" alt="Promotion" class="w-full h-full object-cover">
+                </div>
+                <!-- Content Section -->
+                <div class="p-8 md:p-10 flex flex-col items-center justify-center text-center relative">
+                    <button id="close-announcement-button" class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl">&times;</button>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-amber-400">✨ ប្រម៉ូសិនពិសេស!រដូវបុណ្យភ្ជុំបិណ្ឌ ✨</h2>
+                    <p class="text-lg text-gray-300 mb-6">គ្រប់ផលិតផលទាំងអស់ បញ្ចុះតម្លៃពិសេស<br>ឱកាសដ៏ល្អ មកដល់ហើយ!</p>
+                    <a href="#products" id="announcement-shop-now" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full text-lg btn-primary w-full">
+                        ទិញឥឡូវនេះ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -455,10 +476,10 @@
             ];
 
             const galleryImages = [
-                { src: "Profile.jpg", alt: "Gallery Image 1" },
-                { src: "post_coshion1.jpg", alt: "Gallery Image 2" },
-                { src: "post_coshion2.jpg", alt: "Gallery Image 3" },
-                { src: "post_coshion3.jpg", alt: "Gallery Image 4" },
+                { src: "https://placehold.co/900x1200/f3f4f6/111827?text=Gallery+1", alt: "Gallery Image 1" },
+                { src: "https://placehold.co/900x1200/e5e7eb/1f2937?text=Gallery+2", alt: "Gallery Image 2" },
+                { src: "https://placehold.co/900x1200/d1d5db/374151?text=Gallery+3", alt: "Gallery Image 3" },
+                { src: "https://placehold.co/900x1200/9ca3af/4b5563?text=Gallery+4", alt: "Gallery Image 4" },
             ];
             
             const testimonials = [
@@ -582,40 +603,62 @@
                 startAutoPlay();
             }
 
-            // Product Modal Logic
-            const modal = document.getElementById('product-modal');
-            const closeModalButton = document.getElementById('close-modal-button');
+            // --- MODALS LOGIC (Announcement + Product Details) ---
 
-            // --- BACK BUTTON FIX START ---
-            
-            // This function handles only the VISUAL part of closing the modal
-            const visuallyCloseModal = () => {
-                if (modal.classList.contains('hidden')) return; // Already hidden
-                modal.querySelector('.modal-content').classList.add('scale-95', 'opacity-0');
-                modal.classList.add('opacity-0');
-                setTimeout(() => modal.classList.add('hidden'), 300);
+            const productModal = document.getElementById('product-modal');
+            const announcementModal = document.getElementById('announcement-modal');
+            const closeProductModalButton = document.getElementById('close-modal-button');
+            const closeAnnouncementModalButton = document.getElementById('close-announcement-button');
+            const announcementShopNowButton = document.getElementById('announcement-shop-now');
+
+            // Visually close Product Modal
+            const visuallyCloseProductModal = () => {
+                if (productModal.classList.contains('hidden')) return;
+                productModal.querySelector('.modal-content').classList.add('scale-95', 'opacity-0');
+                productModal.classList.add('opacity-0');
+                setTimeout(() => productModal.classList.add('hidden'), 300);
             };
 
-            // This function INITIATES the closing process (by user click)
-            const closeModal = () => {
-                // If a hash exists, going back in history will trigger hashchange, which closes the modal
-                if(location.hash === '#details') {
+             // Visually close Announcement Modal
+            const visuallyCloseAnnouncementModal = () => {
+                if (announcementModal.classList.contains('hidden')) return;
+                announcementModal.querySelector('.modal-content').classList.add('scale-95', 'opacity-0');
+                announcementModal.classList.add('opacity-0');
+                setTimeout(() => announcementModal.classList.add('hidden'), 300);
+            };
+
+            // INITIATE closing Product Modal
+            const closeProductModal = () => {
+                if (location.hash === '#details') {
                     history.back();
                 } else {
-                    // Fallback if no hash is present
-                    visuallyCloseModal();
+                    visuallyCloseProductModal();
+                }
+            };
+            
+            // INITIATE closing Announcement Modal
+            const closeAnnouncementModal = () => {
+                 if (location.hash === '#announcement') {
+                    history.back();
+                } else {
+                    visuallyCloseAnnouncementModal();
                 }
             };
 
-            // Listen for browser back button action
-            window.addEventListener('hashchange', function() {
-                if(location.hash !== '#details') {
-                    visuallyCloseModal();
+            // Listen for browser back button action (popstate)
+            window.addEventListener('popstate', function() {
+                if (location.hash !== '#details') {
+                    visuallyCloseProductModal();
+                }
+                if (location.hash !== '#announcement') {
+                    visuallyCloseAnnouncementModal();
                 }
             });
 
-            const openModal = (product) => {
-                const mainImage = document.getElementById('modal-product-image');
+            // Open Product Modal
+            const openProductModal = (product) => {
+                // ... (rest of the open product modal logic is the same)
+                 const mainImage = document.getElementById('modal-product-image');
                 const thumbnailsContainer = document.getElementById('modal-product-thumbnails');
 
                 mainImage.src = product.images[0];
@@ -663,43 +706,68 @@
                     videoSection.style.display = 'none';
                 }
 
-                modal.classList.remove('hidden');
+                productModal.classList.remove('hidden');
                 setTimeout(() => {
-                    modal.classList.remove('opacity-0');
-                    modal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0');
+                    productModal.classList.remove('opacity-0');
+                    productModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0');
                 }, 10);
                 
-                // Add a hash to the URL to create a history entry
                 location.hash = 'details';
             };
 
-            // --- BACK BUTTON FIX END ---
+            // Show Announcement Modal (only once per session)
+            const showAnnouncementModal = () => {
+                if (sessionStorage.getItem('announcementShown')) return;
 
+                announcementModal.classList.remove('hidden');
+                setTimeout(() => {
+                    announcementModal.classList.remove('opacity-0');
+                    announcementModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0');
+                }, 10);
+                
+                sessionStorage.setItem('announcementShown', 'true');
+                location.hash = 'announcement';
+            };
+
+            // --- EVENT LISTENERS ---
             
+            // Add event listeners for all product cards/buttons
             function addProductEventListeners() {
                 document.querySelectorAll('.details-button').forEach(button => {
                     button.addEventListener('click', () => {
                         const productIndex = button.dataset.index;
-                        openModal(products[productIndex]);
+                        openProductModal(products[productIndex]);
                     });
                 });
 
                 document.querySelectorAll('.product-image-container').forEach(container => {
                     container.addEventListener('click', () => {
                         const productIndex = container.dataset.index;
-                        openModal(products[productIndex]);
+                        openProductModal(products[productIndex]);
                     });
                 });
             }
-
             if (productGrid) {
                  addProductEventListeners();
             }
 
-            closeModalButton.addEventListener('click', closeModal);
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) closeModal();
+            // Product Modal Close Buttons
+            closeProductModalButton.addEventListener('click', closeProductModal);
+            productModal.addEventListener('click', (e) => {
+                if (e.target === productModal) closeProductModal();
             });
+
+            // Announcement Modal Close Buttons
+            closeAnnouncementModalButton.addEventListener('click', closeAnnouncementModal);
+            announcementShopNowButton.addEventListener('click', closeAnnouncementModal);
+
+            // Show announcement modal after 1.5 seconds if no other modal is open
+            setTimeout(() => {
+                if (location.hash !== '#details') {
+                    showAnnouncementModal();
+                }
+            }, 1500);
+
 
             // Mobile Menu Logic
             const mobileMenuButton = document.getElementById('mobile-menu-button');
