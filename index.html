@@ -125,14 +125,12 @@
     <main>
         <!-- Hero Section -->
         <section id="home" class="relative h-[60vh] md:h-[80vh] overflow-hidden">
-            <!-- Image Tag for better responsive control -->
             <img src="Coverhk7.jpg" alt="HK7 Beauty Care Cover" class="absolute inset-0 z-0 h-full w-full object-cover object-bottom md:object-[center_30%]">
-            
             <div class="absolute inset-0 bg-black/30 z-10"></div>
             <div class="relative z-20 flex flex-col items-center justify-center h-full text-center text-white p-4">
-                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
-                <p class="text-lg md:text-xl max-w-2xl mb-8" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);"></p>
-                <a href="#products" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg btn-primary">Buy Now</a>
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Discover Your Natural Beauty</h1>
+                <p class="text-lg md:text-xl max-w-2xl mb-8" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Premium quality products designed to bring out the best in you.</p>
+                <a href="#products" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg btn-primary">Shop Now</a>
             </div>
         </section>
 
@@ -151,8 +149,8 @@
         <!-- Promotion Banner -->
         <section id="promo" class="bg-pink-500 text-white">
             <div class="container mx-auto px-6 py-8 text-center">
-                <h3 class="text-2xl md:text-3xl font-bold mb-2">✨ Special September Promotion! ✨</h3>
-                <p class="text-lg">Get a FREE Serum Hya with every purchase over $50. Limited time only!</p>
+                <h3 class="text-2xl md:text-3xl font-bold mb-2">✨ Promotion ក្នុងឱកាសបុណ្យភ្ជុំបិណ្ឌ! ✨</h3>
+                <p class="text-lg">គ្រប់ផលិតផលក្រុមហ៊ុន HK7 មានការបញ្ចុះតម្លៃពិសេស</p>
             </div>
         </section>
 
@@ -239,13 +237,18 @@
                         <p id="modal-product-description" class="text-gray-600 mb-6"></p>
                         
                         <div class="mb-6">
-                            <h3 class="text-xl font-semibold mb-2 text-pink-600">Key Ingredients</h3>
                             <p id="modal-product-ingredients" class="text-gray-600"></p>
                         </div>
                         
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2 text-pink-600">How to Use</h3>
-                            <p id="modal-product-howtouse" class="text-gray-600"></p>
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold mb-2 text-pink-600">របៀបប្រើប្រាស់</h3>
+                             <!-- Video Button Section -->
+                            <div id="modal-video-section" class="mt-4">
+                                <p class="text-gray-600 mb-2">តាមរយៈវីដេអូខាងក្រោមនេះ:</p>
+                                <a id="modal-product-video-link" href="#" target="_blank" class="inline-flex items-center bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                                    <i class="fab fa-facebook mr-2"></i>Facebook
+                                </a>
+                            </div>
                         </div>
                         
                         <div class="mt-8">
@@ -265,175 +268,163 @@
             // --- Data Definitions ---
             const products = [
                 { 
-                    name: "Cushion", 
+                    name: "Premium Cushion 2 in 1", 
                     images: [
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Cushion+1",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Cushion+2",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Cushion+3",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Cushion+4",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Cushion+5"
+                        "post_coshion2.jpg",
+                        "post_coshion3.jpg",
+                        "Cushion3.jpg",
+                        "Cushion4.jpg",
+                        "Cushion5.jpg"
                     ],
-                    description: "A lightweight cushion foundation that provides a flawless, natural-looking finish while hydrating the skin.", 
-                    ingredients: "Niacinamide, Hyaluronic Acid, Titanium Dioxide", 
-                    howToUse: "Press the puff applicator into the cushion and gently pat onto the face. Apply a second layer for more coverage." 
+                    description: "✅ អត្ថប្រយោជន៍:<br>- ផាត់ភ្លាម ឃើញផ្ទៃស្អាតភ្លាមៗ<br>- ធ្វើអោយស្បែកម៉ត់ រលោង<br>- ការពារកំដៅថ្ងៃ 50 SPF<br>- ជួយបិទបាំងស្លាកស្នាមបានល្អ១០០%<br>- Lock ស្បែកមុខបានល្អ សាច់ម្សៅស្តេីងស្រួលលាប<br>- មិនហប់មុខ ធន់និងទឹក ធន់និងញេីស មិនកកសាច់ម្សៅ", 
+                    videoUrl: "https://www.facebook.com/watch/?v=your_video_id"
                 },
                 { 
                     name: "Sun block", 
                     images: [
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Sun+Block+1",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Sun+Block+2",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Sun+Block+3",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Sun+Block+4",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Sun+Block+5"
+                        "Sunblock1.jpg",
+                        "Sunblock2.jpg",
+                        "Sunblock3.jpg",
+                        "Sunblock4.jpg",
+                        "Sunblock5.jpg"
                     ],
                     description: "High-protection, non-greasy sunblock that defends against UVA and UVB rays without leaving a white cast.", 
-                    ingredients: "Zinc Oxide, Vitamin E, Aloe Vera", 
-                    howToUse: "Apply generously to all exposed skin 15 minutes before sun exposure. Reapply every 2 hours." 
+                    ingredients: "Zinc Oxide, Vitamin E, Aloe Vera"
                 },
                 { 
                     name: "BB cream", 
                     images: [
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=BB+Cream+1",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=BB+Cream+2",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=BB+Cream+3",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=BB+Cream+4",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=BB+Cream+5"
+                        "BBcream1.jpg",
+                        "BBcream2.jpg",
+                        "BBcream3.jpg",
+                        "BBcream4.jpg",
+                        "BBcream5.jpg"
                     ],
                     description: "All-in-one beauty balm that corrects complexion, hydrates, and protects skin for a radiant, even-toned look.", 
-                    ingredients: "Glycerin, Arbutin, Green Tea Extract", 
-                    howToUse: "Squeeze a small amount and blend evenly over the face using fingertips or a makeup sponge." 
+                    ingredients: "Glycerin, Arbutin, Green Tea Extract"
                 },
                 { 
                     name: "Night cream", 
                     images: [
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Night+Cream+1",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Night+Cream+2",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Night+Cream+3",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Night+Cream+4",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Night+Cream+5"
+                        "Nightcream1.jpg",
+                        "Nightcream2.jpg",
+                        "Nightcream3.jpg",
+                        "Nightcream4.jpg",
+                        "Nightcream5.jpg"
                     ],
                     description: "A rich, restorative night cream that works overnight to repair and rejuvenate the skin, reducing signs of aging.", 
-                    ingredients: "Retinol, Peptides, Shea Butter", 
-                    howToUse: "After cleansing and serum, apply an even layer to the face and neck before sleeping." 
+                    ingredients: "Retinol, Peptides, Shea Butter"
                 },
                 { 
                     name: "Serum Hya", 
                     images: [
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Serum+Hya+1",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Serum+Hya+2",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Serum+Hya+3",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Serum+Hya+4",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Serum+Hya+5"
+                        "SerumHya1.jpg",
+                        "SerumHya2.jpg",
+                        "SerumHya3.jpg",
+                        "SerumHya4.jpg",
+                        "SerumHya5.jpg"
                     ],
                     description: "An intensely hydrating hyaluronic acid serum that plumps skin, smooths fine lines, and boosts radiance.", 
-                    ingredients: "Multi-molecular Hyaluronic Acid, Vitamin B5", 
-                    howToUse: "Apply 2-3 drops to a clean face, morning and night, before moisturizing." 
+                    ingredients: "Multi-molecular Hyaluronic Acid, Vitamin B5"
                 },
                 { 
                     name: "Mask Hk7", 
                     images: [
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Mask+Hk7+1",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Mask+Hk7+2",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Mask+Hk7+3",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Mask+Hk7+4",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Mask+Hk7+5"
+                        "MaskHk7_1.jpg",
+                        "MaskHk7_2.jpg",
+                        "MaskHk7_3.jpg",
+                        "MaskHk7_4.jpg",
+                        "MaskHk7_5.jpg"
                     ],
                     description: "A soothing and purifying clay mask that detoxifies pores and brightens the complexion without over-drying.", 
-                    ingredients: "Kaolin Clay, Centella Asiatica, Witch Hazel", 
-                    howToUse: "Apply a thin layer to clean skin, avoiding eyes. Leave for 10-15 mins and rinse with warm water." 
+                    ingredients: "Kaolin Clay, Centella Asiatica, Witch Hazel"
                 },
                 { 
                     name: "Foam organic", 
                     images: [
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Foam+1",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Foam+2",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Foam+3",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Foam+4",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Foam+5"
+                        "Foam1.jpg",
+                        "Foam2.jpg",
+                        "Foam3.jpg",
+                        "Foam4.jpg",
+                        "Foam5.jpg"
                     ],
                     description: "A gentle, organic foaming cleanser that effectively removes impurities while maintaining the skin's natural moisture balance.", 
-                    ingredients: "Organic Aloe Vera, Chamomile Extract, Coconut Oil", 
-                    howToUse: "Pump 1-2 times and massage foam onto damp skin. Rinse thoroughly." 
+                    ingredients: "Organic Aloe Vera, Chamomile Extract, Coconut Oil"
                 },
                 { 
                     name: "Remover Oil", 
                     images: [
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Remover+1",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Remover+2",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Remover+3",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Remover+4",
-                        "https://placehold.co/600x600/fecdd3/9f1239?text=Remover+5"
+                        "Remover1.jpg",
+                        "Remover2.jpg",
+                        "Remover3.jpg",
+                        "Remover4.jpg",
+                        "Remover5.jpg"
                     ],
                     description: "A powerful yet gentle cleansing oil that melts away makeup, sunscreen, and dirt, leaving skin soft and clean.", 
-                    ingredients: "Jojoba Oil, Grapeseed Oil, Vitamin E", 
-                    howToUse: "Massage 2-3 pumps onto dry skin. Add water to emulsify, then rinse completely." 
+                    ingredients: "Jojoba Oil, Grapeseed Oil, Vitamin E"
                 },
                 { 
                     name: "Coffee Hk7", 
                     images: [
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Coffee+1",
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Coffee+2",
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Coffee+3",
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Coffee+4",
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Coffee+5"
+                        "Coffee1.jpg",
+                        "Coffee2.jpg",
+                        "Coffee3.jpg",
+                        "Coffee4.jpg",
+                        "Coffee5.jpg"
                     ],
                     description: "A slimming and beautifying coffee blend designed to boost metabolism and promote healthy skin from within.", 
-                    ingredients: "Arabica Coffee, Collagen Peptide, Garcinia Cambogia", 
-                    howToUse: "Dissolve one sachet in hot water. Enjoy once a day, preferably in the morning." 
+                    ingredients: "Arabica Coffee, Collagen Peptide, Garcinia Cambogia"
                 },
                 { 
                     name: "Kimiko", 
                     images: [
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Kimiko+1",
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Kimiko+2",
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Kimiko+3",
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Kimiko+4",
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Kimiko+5"
+                        "Kimiko1.jpg",
+                        "Kimiko2.jpg",
+                        "Kimiko3.jpg",
+                        "Kimiko4.jpg",
+                        "Kimiko5.jpg"
                     ],
                     description: "A premium supplement for skin brightening and anti-aging, packed with powerful antioxidants.", 
-                    ingredients: "Glutathione, Vitamin C, Fish Collagen", 
-                    howToUse: "Take one capsule daily with water." 
+                    ingredients: "Glutathione, Vitamin C, Fish Collagen"
                 },
                 { 
                     name: "Collagen Pink", 
                     images: [
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Collagen+1",
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Collagen+2",
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Collagen+3",
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Collagen+4",
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Collagen+5"
+                        "Collagen1.jpg",
+                        "Collagen2.jpg",
+                        "Collagen3.jpg",
+                        "Collagen4.jpg",
+                        "Collagen5.jpg"
                     ],
                     description: "A delicious collagen drink that supports skin elasticity, hydration, and overall youthful appearance.", 
-                    ingredients: "Marine Collagen, Strawberry Extract, Vitamin C", 
-                    howToUse: "Mix one sachet with water and drink daily." 
+                    ingredients: "Marine Collagen, Strawberry Extract, Vitamin C"
                 },
                 { 
                     name: "Crystal Collagen", 
                     images: [
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Crystal+1",
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Crystal+2",
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Crystal+3",
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Crystal+4",
-                        "https://placehold.co/600x600/fbcfe8/9d174d?text=Crystal+5"
+                        "Crystal1.jpg",
+                        "Crystal2.jpg",
+                        "Crystal3.jpg",
+                        "Crystal4.jpg",
+                        "Crystal5.jpg"
                     ],
                     description: "Advanced collagen jelly for firm, supple, and glowing skin. A convenient and tasty beauty supplement.", 
-                    ingredients: "Hydrolyzed Collagen, Royal Jelly, Pomegranate Extract", 
-                    howToUse: "Consume one jelly strip per day." 
+                    ingredients: "Hydrolyzed Collagen, Royal Jelly, Pomegranate Extract"
                 }
             ];
             
             const galleryImages = [
+                { src: "Profile.jpg" },
                 { src: "post_coshion1.jpg" },
                 { src: "post_coshion2.jpg" },
                 { src: "post_coshion3.jpg" },
-                { src: "https://placehold.co/900x500/bfdbfe/1e3a8a?text=Model+with+Product", alt: "Beauty Image 4" },
-                { src: "https://placehold.co/900x500/ddd6fe/4c1d95?text=Product+Lineup", alt: "Beauty Image 5" },
+                
             ];
             
             const testimonials = [
-                { name: "Sreynith", image: "https://placehold.co/100x100/e0e7ff/3730a3?text=S", quote: "The Night Cream is amazing! My skin feels so soft and looks brighter every morning. Highly recommend!", time: "2h ago" },
-                { name: "Pisey", image: "https://placehold.co/100x100/d1fae5/059669?text=P", quote: "I love the Sun Block. It's not sticky at all and works perfectly under my makeup. It's my new daily essential.", time: "1d ago" },
-                { name: "Bopha", image: "https://placehold.co/100x100/fef9c3/b45309?text=B", quote: "HK7's Cushion gives such a natural glow. The coverage is just right for me. Will definitely buy again!", time: "3d ago" }
+                { name: "Sreynith", image: "testimonial1.jpg", quote: "The Night Cream is amazing! My skin feels so soft and looks brighter every morning. Highly recommend!", time: "2h ago" },
+                { name: "Pisey", image: "testimonial2.jpg", quote: "I love the Sun Block. It's not sticky at all and works perfectly under my makeup. It's my new daily essential.", time: "1d ago" },
+                { name: "Bopha", image: "testimonial3.jpg", quote: "HK7's Cushion gives such a natural glow. The coverage is just right for me. Will definitely buy again!", time: "3d ago" }
             ];
 
             // --- Dynamic Content Population ---
@@ -513,8 +504,7 @@
             // Product Modal Logic
             const modal = document.getElementById('product-modal');
             const closeModalButton = document.getElementById('close-modal-button');
-            const detailButtons = document.querySelectorAll('.details-button');
-
+            
             const openModal = (product) => {
                 const mainImage = document.getElementById('modal-product-image');
                 const thumbnailsContainer = document.getElementById('modal-product-thumbnails');
@@ -542,10 +532,26 @@
                 });
 
                 document.getElementById('modal-product-name').textContent = product.name;
-                document.getElementById('modal-product-description').textContent = product.description;
-                document.getElementById('modal-product-ingredients').textContent = product.ingredients;
-                document.getElementById('modal-product-howtouse').textContent = product.howToUse;
+                document.getElementById('modal-product-description').innerHTML = product.description;
+                document.getElementById('modal-product-ingredients').textContent = product.ingredients || "";
                 
+                // Show/Hide Ingredients section
+                const ingredientsSection = document.getElementById('modal-product-ingredients').parentElement;
+                if (product.ingredients) {
+                    ingredientsSection.style.display = 'block';
+                } else {
+                    ingredientsSection.style.display = 'none';
+                }
+
+                // Show/Hide Video section
+                const videoSection = document.getElementById('modal-video-section');
+                if (product.videoUrl) {
+                    document.getElementById('modal-product-video-link').href = product.videoUrl;
+                    videoSection.style.display = 'block';
+                } else {
+                    videoSection.style.display = 'none';
+                }
+
                 modal.classList.remove('hidden');
                 setTimeout(() => {
                     modal.classList.remove('opacity-0');
@@ -559,7 +565,8 @@
                 setTimeout(() => modal.classList.add('hidden'), 300);
             };
 
-            detailButtons.forEach(button => {
+            // We must re-select the buttons after they are dynamically added to the page
+            document.querySelectorAll('.details-button').forEach(button => {
                 button.addEventListener('click', () => {
                     const productIndex = button.dataset.index;
                     openModal(products[productIndex]);
@@ -598,3 +605,4 @@
     </script>
 </body>
 </html>
+
