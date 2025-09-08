@@ -8,10 +8,10 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts (Inter) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Kantumruy+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -19,7 +19,8 @@
     <style>
         /* Custom styles */
         body {
-            font-family: 'Inter', sans-serif;
+            /* Use Inter for English and fall back to Kantumruy Pro for Khmer */
+            font-family: 'Inter', 'Kantumruy Pro', sans-serif;
             background-color: #fdfdfd;
         }
         .nav-link-active {
@@ -121,7 +122,6 @@
                 <a href="#home" class="text-gray-600 hover:text-amber-500 transition duration-300 nav-link">Home</a>
                 <a href="#gallery" class="text-gray-600 hover:text-amber-500 transition duration-300 nav-link">Gallery</a>
                 <a href="#products" class="text-gray-600 hover:text-amber-500 transition duration-300 nav-link">Products</a>
-                <a href="#testimonials" class="text-gray-600 hover:text-amber-500 transition duration-300 nav-link">Reviews</a>
                 <a href="#about" class="text-gray-600 hover:text-amber-500 transition duration-300 nav-link">About Us</a>
                 <a href="#contact" class="text-gray-600 hover:text-amber-500 transition duration-300 nav-link">Contact</a>
             </nav>
@@ -131,7 +131,6 @@
             <a href="#home" class="block py-2 text-gray-600 hover:text-amber-500 nav-link">Home</a>
             <a href="#gallery" class="block py-2 text-gray-600 hover:text-amber-500 nav-link">Gallery</a>
             <a href="#products" class="block py-2 text-gray-600 hover:text-amber-500 nav-link">Products</a>
-            <a href="#testimonials" class="block py-2 text-gray-600 hover:text-amber-500 nav-link">Reviews</a>
             <a href="#about" class="block py-2 text-gray-600 hover:text-amber-500 nav-link">About Us</a>
             <a href="#contact" class="block py-2 text-gray-600 hover:text-amber-500 nav-link">Contact</a>
         </div>
@@ -146,15 +145,15 @@
             </div>
             <div class="absolute inset-0 bg-black/30 z-10"></div>
             <div class="relative z-20 flex flex-col items-center justify-center h-full text-center text-white p-4">
-                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);"></h1>
-                <p class="text-lg md:text-xl max-w-2xl mb-8" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);"></p>
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                <p class="text-lg md:text-xl max-w-2xl mb-8" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
             </div>
         </section>
 
         <!-- Gallery Slider Section -->
         <section id="gallery" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Gallery</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12"></h2>
                 <div class="slider-container shadow-lg">
                     <div id="slider-track" class="slider-track"></div>
                     <button id="prev-button" class="slider-button prev-button"><i class="fas fa-chevron-left"></i></button>
@@ -166,7 +165,7 @@
         <!-- Promotion Banner -->
         <section id="promo" class="bg-gray-900 text-gray-200">
             <div class="container mx-auto px-6 py-8 text-center">
-                <h3 class="text-2xl md:text-3xl font-bold mb-2 text-amber-400">✨ Promotion ក្នុងឱកាសបុណ្យភ្ជុំបិណ្ឌ! ✨</h3>
+                <h3 class="text-2xl md:text-3xl font-bold mb-2 text-amber-400">Promotion ក្នុងឱកាសបុណ្យភ្ជុំបិណ្ឌ</h3>
                 <p class="text-lg">គ្រប់ផលិតផលក្រុមហ៊ុន HK7 មានការបញ្ចុះតម្លៃពិសេស</p>
             </div>
         </section>
@@ -174,16 +173,8 @@
         <!-- Products Section -->
         <section id="products" class="py-16 md:py-24 bg-gray-100">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Products</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">ផលិតផល</h2>
                 <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">What Our Customers Say</h2>
-                <div id="testimonial-grid" class="grid grid-cols-1 max-w-3xl mx-auto gap-8"></div>
             </div>
         </section>
 
@@ -195,9 +186,9 @@
                         <img src="D_Cover2.jpg" alt="About HK7 Beauty Care" class="rounded-lg shadow-xl w-full">
                     </div>
                     <div class="md:w-1/2">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4">About HK7 Beauty Care</h2>
-                        <p class="text-gray-600 leading-relaxed mb-4">Welcome to HK7 Beauty Care, where we believe in the power of nature and science to create skincare that truly works. Our mission is to provide high-quality, effective, and safe beauty products that enhance your natural radiance.</p>
-                        <p class="text-gray-600 leading-relaxed">Crafted with care in Cambodia, each product is a testament to our commitment to excellence and our passion for helping you feel confident and beautiful in your own skin.</p>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">អំពី HK7 Beauty Care</h2>
+                        <p class="text-gray-600 leading-relaxed mb-4">សូមស្វាគមន៍មកកាន់ HK7 Beauty Care ដែលជាកន្លែងដែលយើងជឿជាក់លើថាមពលនៃធម្មជាតិ និងវិទ្យាសាស្ត្រ ដើម្បីបង្កើតផលិតផលថែរក្សាស្បែកដែលមានប្រសិទ្ធភាពពិតប្រាកដ។ បេសកកម្មរបស់យើងគឺផ្តល់នូវផលិតផលថែរក្សាសម្រស់ដែលមានគុណភាពខ្ពស់ ប្រសិទ្ធភាព និងសុវត្ថិភាព ដែលជួយបង្កើនភាពស្រស់ស្អាតពីធម្មជាតិរបស់អ្នក។</p>
+                        <p class="text-gray-600 leading-relaxed">ផលិតផលនីមួយៗផលិតយ៉ាងយកចិត្តទុកដាក់ក្នុងប្រទេសកម្ពុជា ដែលជាសក្ខីភាពនៃការប្តេជ្ញាចិត្តរបស់យើងចំពោះឧត្តមភាព និងចំណង់ចំណូលចិត្តរបស់យើងក្នុងការជួយឱ្យអ្នកមានអារម្មណ៍ជឿជាក់ និងស្រស់ស្អាតនៅក្នុងសម្បុរស្បែកផ្ទាល់ខ្លួនរបស់អ្នក។</p>
                     </div>
                 </div>
             </div>
@@ -210,24 +201,23 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
                 <div>
                     <h3 class="text-2xl font-bold mb-4">HK7 Beauty Care</h3>
-                    <p class="text-gray-400">Your trusted partner in beauty and skincare.</p>
+                    <p class="text-gray-400">HK7 ហ្វេនតារា ចង់ស្អាតដូចតារា សូមប្រើ HK7</p>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <h4 class="text-lg font-semibold mb-4">ទំនាក់ទំនងតាមរយះ</h4>
                     <ul class="space-y-2 text-gray-400">
                         <li><i class="fas fa-phone mr-2"></i> 010 855 102</li>
                         <li><i class="fas fa-phone mr-2"></i> 092 890 80</li>
-                        <li><a href="https://www.facebook.com/hk7168cambodia" target="_blank" class="hover:text-amber-400 transition-colors"><i class="fab fa-facebook-f mr-2"></i> HK7 Cambodia Facebook</a></li>
+                        <li><a href="https://www.facebook.com/hk7168cambodia" target="_blank" class="hover:text-amber-400 transition-colors"><i class="fab fa-facebook-f mr-2"></i> HK7</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <h4 class="text-lg font-semibold mb-4">តំណភ្ជាប់រហ័ស</h4>
                     <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-amber-400 transition-colors">Home</a></li>
-                        <li><a href="#gallery" class="text-gray-400 hover:text-amber-400 transition-colors">Gallery</a></li>
-                        <li><a href="#products" class="text-gray-400 hover:text-amber-400 transition-colors">Products</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-amber-400 transition-colors">Reviews</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-amber-400 transition-colors">About Us</a></li>
+                        <li><a href="#home" class="text-gray-400 hover:text-amber-400 transition-colors">ទំព័រដើម</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-amber-400 transition-colors">រូបភាព</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-amber-400 transition-colors">ផលិតផល</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-amber-400 transition-colors">អំពីយើង</a></li>
                     </ul>
                 </div>
             </div>
@@ -260,7 +250,7 @@
                         </div>
                         
                         <div class="mb-6">
-                            <h3 class="text-xl font-semibold mb-2 text-amber-600">របៀបប្រើប្រាស់</h3>
+                            <h3 class="text-xl font-semibold mb-2 text-red-600">របៀបប្រើប្រាស់</h3>
                              <!-- Video Button Section -->
                             <div id="modal-video-section" class="mt-4">
                                 <p class="text-gray-600 mb-2">តាមរយៈវីដេអូខាងក្រោមនេះ:</p>
@@ -272,7 +262,7 @@
                         
                         <div class="mt-8">
                              <a href="https://www.facebook.com/hk7168cambodia" target="_blank" class="w-full text-center bg-gray-800 text-white py-3 px-6 rounded-lg hover:bg-gray-900 transition-colors duration-300 inline-block">
-                                 <i class="fab fa-facebook-messenger mr-2"></i> Chat to Order
+                                 <i class="fab fa-facebook-messenger mr-2"></i> ទិញឥឡូវនេះ
                              </a>
                         </div>
                     </div>
@@ -286,14 +276,13 @@
         <div class="modal-content bg-gray-800 text-white rounded-xl shadow-2xl w-full max-w-4xl overflow-hidden transform scale-95 opacity-0">
             <div class="grid grid-cols-1 md:grid-cols-2">
                 <!-- Image Section -->
-                <!-- FIXED: Removed 'hidden' and 'md:block' to show on all screen sizes -->
                 <div>
                      <img src="Announcement2.jpg" alt="Promotion" class="w-full h-full object-cover">
                 </div>
                 <!-- Content Section -->
                 <div class="p-8 md:p-10 flex flex-col items-center justify-center text-center relative">
                     <button id="close-announcement-button" class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl">&times;</button>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-amber-400">✨ ប្រម៉ូសិនពិសេស!ក្នុងឱកាសបុណ្យភ្ជុំបិណ្ឌ!✨</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-amber-400">ប្រម៉ូសិនពិសេស<br>ក្នុងឱកាសបុណ្យភ្ជុំបិណ្ឌ</h2>
                     <p class="text-lg text-gray-300 mb-6">គ្រប់ផលិតផល HK7 ទាំងអស់ បញ្ចុះតម្លៃ​ពិសេស</p>
                     <a href="#products" id="announcement-shop-now" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full text-lg btn-primary w-full">
                         ទិញឥឡូវនេះ
@@ -310,215 +299,93 @@
             const products = [
                 { 
                     name: "Cushion 2 in 1", 
-                    originalPrice: 15.00,
-                    pricing: [
-                        { quantity: 1, price: 15.00 },
-                        { quantity: 2, price: 12.00 }
-                    ],
-                    images: [
-                        "post_coshion2.jpg",
-                        "post_coshion3.jpg",
-                        "Cushion3.jpg",
-                    ],
+                    pricing: [ { quantity: 1, price: 12.00 } ],
+                    images: [ "post_coshion1.jpg", "post_coshion2.jpg", "post_coshion3.jpg" ],
                     description: "✅ អត្ថប្រយោជន៍:<br>- ផាត់ភ្លាម ឃើញផ្ទៃស្អាតភ្លាមៗ<br>- ធ្វើអោយស្បែកម៉ត់ រលោង<br>- ការពារកំដៅថ្ងៃ 50 SPF<br>- ជួយបិទបាំងស្លាកស្នាមបានល្អ១០០%<br>- Lock ស្បែកមុខបានល្អ សាច់ម្សៅស្តេីងស្រួលលាប<br>- មិនហប់មុខ ធន់និងទឹក ធន់និងញេីស មិនកកសាច់ម្សៅ", 
                     videoUrl: "https://www.facebook.com/hk7168cambodia/videos/1097611909146116"
                 },
                 { 
                     name: "Sun block", 
-                    originalPrice: 10.00,
-                    pricing: [
-                        { quantity: 1, price: 10.00 },
-                        { quantity: 2, price: 16.00 }
-                    ],
-                    images: [
-                        "post_sun1.jpg",
-                        "post_sun2.jpg",
-                        "post_sun3.jpg",
-                    ],
+                    pricing: [ { quantity: 1, price: 10.00 }, { quantity: 2, price: 16.00 } ],
+                    images: [ "post_sun1.jpg", "post_sun2.jpg", "post_sun3.jpg" ],
                     description: "✅ អត្ថប្រយោជន៍:<br>- ជួយ​ការពារ​ពី​បញ្ហា​ស្បែក​មុខ​ពីពន្លឺថ្ងៃ​ 𝗨𝗩𝗔 𝗨𝗩𝗕<br>- ជួយ​ការពារ​ផ្ទៃ​មុខ​កុំ​ឲ្យ​កេីតមុន​​ជាំ​ នឹង​ អាចម៍​រុយ<br>- ជួយ​ទប់ស្កាត់​ជាតិ​ខ្លាញ់​នឹងមិនហូរប្រតាកលេីមុខ​<br>- ជួយផ្តល់សំណេីមដល់ផ្ទៃមុខ​ធ្វើឲ្យ​ស្បែក​មុខ​ស​ ម៉ត់​ភ្លឺ​រលោង<br>- កាន់​តែ​ប្រេី​កាន់​តែ​ស្រស់ស្អាត​ក្មេង​ជាង​វ័យ​<br>- ប្រេីបានទាំងបុរស នារី ក្មេងចាស់ប្រុសស្រី​",
                     videoUrl: "https://www.facebook.com/reel/1119326786904462"
                 },
                 { 
                     name: "BB cream", 
-                    originalPrice: 10.00,
-                    pricing: [
-                        { quantity: 1, price: 10.00 },
-                        { quantity: 2, price: 16.00 }
-                    ],
-                    images: [
-                        "post_bb1.jpg",
-                        "post_bb2.jpg",
-                        "post_bb3.jpg",
-                    ],
+                    pricing: [ { quantity: 1, price: 10.00 }, { quantity: 2, price: 16.00 } ],
+                    images: [ "post_bb1.jpg", "post_bb2.jpg", "post_bb3.jpg" ],
                     description: "✅ អត្ថប្រយោជន៍:<br>- ជាប្រភេទ​ម្សៅ​ទ្រនាប់​បិទ​បាំង​ស្លាក​ស្នាម​លេីផ្ទៃមុខ<br>- ជួយទប់ស្កាត់រាល់បញ្ហាដែលបណ្តាលអោយកេីតមុន ​ជាំ​ នឹង​អាចម៍​រុយ​<br>- ជួយ​ការពារ​កុំ​ឲ្យ​មុខឡើង​​ខ្លាញ់​​ ផ្តល់​សំណេីមដល់ផ្ទៃមុខ<br>- សាច់ម្សៅម៉ត់​ធន់​នឹង​ទឹក​ មិន​ហូរ​ប្រតាកពេលបែកញេីស<br>- ជួយ​ការពារ​ពី​ពន្លឺ​ព្រះ​អាទិត្យ​រហូត​ដល់ 50𝐬𝐩𝐟 ++<br>- ",
                     videoUrl: "https://www.facebook.com/reel/4106095046300866"
                 },
                 { 
                     name: "Night cream", 
-                    originalPrice: 10.00,
-                    pricing: [
-                        { quantity: 1, price: 10.00 },
-                        { quantity: 2, price: 16.00 }
-                    ],
-                    images: [
-                        "Nightcream1.jpg",
-                        "Nightcream2.jpg",
-                        "Nightcream3.jpg",
-                    ],
+                    pricing: [ { quantity: 1, price: 10.00 }, { quantity: 2, price: 16.00 } ],
+                    images: [ "post_night1.jpg", ],
                     description: "✅ ឯកទេស​ព្យាបាល​មុខកេីត​មុន​គ្រប់​ប្រភេទ​ដូចជា​:<br>- មុនដំបូក​ មុនខ្ទុះ​ មុនខ្សាច់​ មុនផ្កាស្បូន​ មុនកប់ក្នុងសាច់​ មុនក្បាលខ្មៅ​<br>- បំបាត់​សរសៃ​ក្រហម​  បំបាត់​អាចម៍​រុយ​<br>- ជួយ​បន្តឹង​ស្បែក​មុខ​ បំបាត់​ស្នាម​ជ្រាវ​ជ្រួញ<br>- ជំរុះ​កោសិកា​ស្បែក​ចាស់ បង្កេីត​កោសិកា​ថ្មី​ល្អដល់ផ្ទៃមុខ<br>- បំបាត់​​ស្នាមជាំយូរខែយូរឆ្នាំ <br>- ប្រសិទ្ធភាពល្អពិតតាំងពីប្រេីក្លង់ដំបូង​", 
                     videoUrl: "https://www.facebook.com/reel/1413000023043696"
                 },
                 { 
                     name: "Serum Hya", 
-                    originalPrice: 12.00,
-                    pricing: [
-                        { quantity: 1, price: 9.00 },
-                    
-                    ],
-                    images: [
-                        "SerumHya1.jpg",
-                        "SerumHya2.jpg",
-                        "SerumHya3.jpg",
-                    ],
-                    description: "✅ អត្ថប្រយោជន៍:<br>- ឯកទេស​បំបាត់​មុខមុនយូរខែយូរឆ្នាំ មុនកប់​ មុខខ្ទុះ​ មុនដំបូក​មុន​ក្បាល​ខ្μៅ​<BR>-ជួយបំបាត់​ជាំ​ នឹងអាចម៍​រុយយូរឆ្នាំ<br>- បំបាត់​ស្នាម​អុជខ្μៅ​ ជួយ​បន្តឹង​ស្បែក​មុខ​<br>- ជួយ​បង្រួម​រន្ធញើស​ បំបាត់​ស្នាម​ជ្រាវ​ជ្រួញ​<br>- ​ឃេីញ​ប្រសិទ្ធភាព​តាំង​ពី​ប្រេី​ឈុត​ដំបូង​", 
+                    pricing: [ { quantity: 1, price: 9.00 } ],
+                    images: [ "post_hya1.jpg", ],
+                    description: "✅ អត្ថប្រយោជន៍:<br>- ឯកទេស​បំបាត់​មុខមុនយូរខែយូរឆ្នាំ មុនកប់​ មុខខ្ទុះ​ មុនដំបូក​មុន​ក្បាល​ខ្មៅ​​<BR>- ជួយបំបាត់​ជាំ​ នឹងអាចម៍​រុយយូរឆ្នាំ<br>- បំបាត់​ស្នាម​អុជខ្មៅ​ ជួយ​បន្តឹង​ស្បែក​មុខ​​<br>- ជួយ​បង្រួម​រន្ធញើស​ បំបាត់​ស្នាម​ជ្រាវ​ជ្រួញ​<br>- ​ឃេីញ​ប្រសិទ្ធភាព​តាំង​ពី​ប្រេី​ឈុត​ដំបូង​", 
                     videoUrl: "https://www.facebook.com/reel/1413000023043696"
                 },
                 { 
                     name: "Mask HK7", 
-                    originalPrice: 10.00,
-                    pricing: [
-                        { quantity: 1, price: 10.00 },
-                        { quantity: 2, price: 16.00 }
-                    ],
-                    images: [
-                        "MaskHk7_1.jpg",
-                        "MaskHk7_2.jpg",
-                        "MaskHk7_3.jpg",
-                    ],
+                    pricing: [ { quantity: 1, price: 10.00 }, { quantity: 2, price: 16.00 } ],
+                    images: [ "post_mask1.jpg", ],
                     description: "✅ អត្ថប្រយោជន៍ ម៉ាសដែកឆក់ស្រូបជាតិពុល<br>- ជាប្រភេទម៉ាសផ្សំឡេីងពីសរសៃសូត្រ<br>- បិទលេីមុខ​ធ្វេីឲ្យមុខតឹងណែន​បំបាត់ស្នាមជ្រាវជ្រួញ<br>- បិទលេីផ្ទៃមុខដេីម្បីស្រូបជាតិពុល​ នឹងសារធាតុមិនល្អចេញ<br>- បិទម៉ាសមួយសន្លឹក​ ស្មេីនឹងបញ្ចូលវីតាមីនមុខម្ដង​<br>- បិទលេីមុខ​ធ្វេីអោយមុខមានសំណេីម​ បង្រួម​រន្ធញើស<br>- ធ្វើឲ្យ​​ស្បែក​មុខ​ស​ភ្លឺ​ថ្លា​ ទន់ ម៉ត់​រលោង​ស្អាត", 
                     videoUrl: "https://www.facebook.com/reel/571531308746884"
                 },
                 { 
                     name: "Foam organic", 
-                    originalPrice: 10.00,
-                    pricing: [
-                        { quantity: 1, price: 10.00 },
-                        { quantity: 2, price: 16.00 }
-                    ],
-                    images: [
-                        "post_f1.jpg",
-                        "post_f2.jpg",
-                        "post_f3.jpg",
-                    ],
-                    description: "✅ អត្ថប្រយោជន៍ ហ្វូមលាង​មុខ​ធម្មជាតិ​<br>- ងាយស្រួលក្នុងការជូតសម្អាតគ្រឿង Make Up បានយ៉ាងស្អាតល្អ<br>- ជួយជូតសម្អាតស្បែកមុខបានល្អឥតខ្ចោះ​<br>- ជួយ​បន្តឹង​ស្បែក​មុខ​ ធ្វើ​ឲ្យ​មុខស​ ភ្លឺ​ស្រស់ថ្លាទន់រលាងបែបធម្មជាតិ<br>- ជួយ​ការពារ​កុំ​ឲ្យ​មុខ​កេីត​មុន​ ​កេីត​ជាំ​នឹងអាចម៍​រុយ​<br>- ជួយ​បង្រួម​រន្ធញើស​ ធ្វើឲ្យ​ក្មេង​ជាង​វ័យ​<br>- ប្រេីបាន ក្មេងចាស់ប្រុសស្រី", 
+                    pricing: [ { quantity: 1, price: 10.00 }, { quantity: 2, price: 16.00 } ],
+                    images: [ "post_f1.jpg", "post_f2.jpg", "post_f3.jpg" ],
+                    description: "✅ អត្ថប្រយោជន៍ ហ្វូមលាង​មុខ​ធម្មជាតិ​<br>- ជួយ​លាង​សម្អាត​បាក់តេរី​ មេរោគ​ដែលមាន​នៅលេី ផ្ទៃមុខបានយ៉ាងល្អ<br>- ជួយ​កំចាត់​ជាតិ​ខ្លាញ់នៅ​លេី​មុខ​​ មិន​ធ្វើ​ឲ្យ​ស្បែក​មុខស្ងួត​​<br>- ជួយ​បន្តឹង​ស្បែក​មុខ​ ធ្វើ​ឲ្យ​មុខស​ ភ្លឺ​ស្រស់ថ្លាទន់រលាងបែបធម្មជាតិ<br>- ជួយ​ការពារ​កុំ​ឲ្យ​មុខ​កេីត​មុន​ ​កេីត​ជាំ​នឹងអាចម៍​រុយ​<br>- ជួយ​បង្រួម​រន្ធញើស​ ធ្វើឲ្យ​ក្មេង​ជាង​វ័យ​<br>- ប្រេីបាន ក្មេងចាស់ប្រុសស្រី", 
                     videoUrl: "https://www.facebook.com/hk7168cambodia/videos/645836785209084"
                 },
                 { 
                     name: "Remover Oil", 
-                    originalPrice: 10.00,
-                    pricing: [
-                        { quantity: 1, price: 10.00 },
-                        { quantity: 2, price: 16.00 }
-                    ],
-                    images: [
-                        "Remover1.jpg",
-                        "Remover2.jpg",
-                        "Remover3.jpg",
-                    ],
+                    pricing: [ { quantity: 1, price: 10.00 }, { quantity: 2, price: 16.00 } ],
+                    images: [ "post_remove1.jpg", "post_remove2.jpg"],
                     description: "✅ អត្ថប្រយោជន៍ (ទឹក​ជូត​មុខ​ធម្មជាតិ​)<br>- ឯកទេសជូតសម្អាតស្បែកមុខបានយ៉ាងល្អឥតខ្ចោះ<br>- ជូតហើយធ្វើអោយស្បែកមុខស​ទន់ម៉ត់​ភ្លឺរលោងបែបធម្មជាតិ​ ​<br>- ផ្តល់សំណើមដល់ស្បែក​មុខ​ បំបាត់​ស្នាម​ជ្រាវ​ជ្រួញ​លេី​ផ្ទៃ​មុខ​​<br>- ជាប្រភេទប្រេងធម្មជាតិមិនមានជាតិអាកុល", 
                     videoUrl: "https://www.facebook.com/rey.zin.3785/videos/3670068329882191"
                 },
                 { 
                     name: "Coffee Hk7", 
-                    originalPrice: 12.00,
-                    pricing: [
-                        { quantity: 1, price: 12.00 },
-                        { quantity: 3, price: 27.00 },
-                        { quantity: 5, price: 38.00 }
-
-                    ],
-                    images: [
-                        "Coffee1.jpg",
-                        "Coffee2.jpg",
-                        "Coffee3.jpg",
-                    ],
+                    pricing: [ { quantity: 1, price: 12.00 }, { quantity: 3, price: 27.00, bonus: "(ថែម 1)" }, { quantity: 5, price: 38.00, bonus: "(ថែម 1 + ដបទឹក1)" } ],
+                    images: [ "post_coffee1.jpg", "post_coffee2.jpg", "post_coffee3.jpg" ],
                     description: "✅ អត្ថប្រយោជន៍:<br>- ជួយ​ដុត​រំលាយ​ជាតិ​ខ្លាញ់​នឹង​សារធាតុ​មិន​ល្អ​ដែលបណ្តាលឲ្យធាត់<br>- ជួយ​ដុត​រំលាយ​ជាតិ​ខ្លាញ់​នៅ​តាម​ដេីម​ដៃ​ គល់ភ្លៅ​ ក្បាល​ពោះ​<br>- ជួយ​សម្រួល​ដល់​ការ​បន្ទោរ​បង់​ប្រចាំ​ថ្ងៃ​ (មិន​ធ្វើ​ទុក​មិន​ធ្វើ​ឲ្យ​រាគ​)<br>- ជួយ​ធ្វើឲ្យ​រាង​ស្រឡូន​ ស្បែក​ស្អាត​ពេញ​មួយ​តួ​ខ្លួន<br>- ជួយ​ធ្វើ​ឲ្យ​ក្បាល​ពោះ​រាប​ស្មើ​ ស្អាត", 
                     videoUrl: "https://www.facebook.com/reel/704910098709267"
                 },
                 { 
                     name: "Collagen Pink", 
-                    originalPrice: 12.00,
-                    pricing: [
-                        { quantity: 1, price: 12.00 },
-                        { quantity: 3, price: 27.00 },
-                        { quantity: 5, price: 38.00 }
-
-                    ],
-                    images: [
-                        "Collagen.jpg",
-                        "Collagen.jpg",
-                        "Collagen.jpg",
-                    ],
-                    description: "✅ អត្ថប្រយោជន៍:<br>- ", 
+                    pricing: [ { quantity: 1, price: 12.00 }, { quantity: 3, price: 27.00, bonus: "(ថែម 1)" }, { quantity: 5, price: 38.00, bonus: "(ថែម 1 + ដបទឹក1)" } ],
+                    images: [ "post_pink1.jpg", ],
+                    description: "✅ អត្ថប្រយោជន៍:<br>- ជួយធ្វើអោយស្បែក សភ្លឺថ្លា ម្មត់រលោងចេញពីខាងក្នុង<br>- ជួយធ្វើអោយស្បែកមានសំណើម បំបាត់ស្នាមអុជខ្មៅលេីស្បែក<br>- ធ្វើអោយរាងកាយរឹងមាំ សុខភាពល្អ មានកំលាំង ក្មេងជាងវយ័<br>- ជំនួយដល់សក់ និងក្រចក រឹងមាំដុះបានល្អ<br>- ធ្វើអោយរដូវមកទៀងទាត់ ( សម្រាប់ស្រី្ត )", 
                     videoUrl: "https://www.facebook.com/share/p/1CeSEp3SPB/"
                 },
                 { 
                     name: "តែបៃតង Kimiko", 
-                    originalPrice: 12.00,
-                    pricing: [
-                        { quantity: 1, price: 12.00 },
-                        { quantity: 3, price: 27.00 },
-                        { quantity: 5, price: 38.00 }
-
-                    ],
-                    images: [
-                        "Kimiko1.jpg",
-                        "Kimiko2.jpg",
-                        "Kimiko3.jpg",
-                    ],
-                    description: "✅ អត្ថប្រយោជន៍:<br>- រសជាតិ​បែប​តែ​បៃតង​/សណ្ដែក​ខៀវ​<br>- ញុំា​តែ​មួយ​កែវ​ឆ្អែត​បានយូរ​ ល្អ​បំផុត​សម្រាប់​អ្នក​តប​អាហារ​<br>- សំបូរ​ទៅ​ដោយ​បន្លែ​ផ្លែ​ឈើ​ល្អ​ៗជាច្រើន​ប្រភេទ​<br>- ជំនួយ​សុខភាព​ ផ្តល់​ថាមពល​ដល់​រាងកាយ​  សម្រួល​ដល់​ការ​គេង​<br>- ល្អ​បំផុត​សម្រាប់​អ្នក​ដែល​ចង់ថែរក្សា​​រាង​ឲ្យ​ជាអក្សរ​ S", 
+                    pricing: [ { quantity: 1, price: 12.00 }, { quantity: 3, price: 27.00, bonus: "(ថែម 1)" }, { quantity: 5, price: 38.00, bonus: "(ថែម 1 + ដបទឹក1)" } ],
+                    images: [ "post_kimiko1.jpg", "post_kimiko2.jpg" ],
+                    description: "✅ អត្ថប្រយោជន៍:<br>- ញុំា​មួយ​កែវ​ ឆ្អែត​បាន​យូរ សំខាន់​មិន​ប៉ះ​ពាល់​ដល់​សុខភាព​​<br>- រសជាតិ​បែប​តែ​បៃតង​ សំខាន់​ក្លិន​ឈ្ងុយ​រសជាតិ​ឆ្ងាញ់​ជាប់​ចិត្ត​​<br>- សម្បូរទៅ​ដោយ​ប្រូតេអ៊ីន​ ផ្សំ​ពី​បន្លែ​ផ្លែ​ឈើ​ល្អ​ៗជាច្រើន​ប្រភេទ​​<br>- ជំនួយ​សុខភាព​ ផ្តល់​ថាមពល​ដល់​រាងកាយ​ សម្រួល​ដល់​ការ​គេង​<br>- ល្អ​បំផុត​សម្រាប់​​អ្នក​តបមអាហារ​ ចង់ថែរក្សា​​រាង​ឲ្យ​ជាអក្សរ​ S", 
                     videoUrl: "https://www.facebook.com/share/p/1CeSEp3SPB/"
                 }
-
             ];
             
             const heroSliderImages = [
-                { 
-                    desktopSrc: "D_Cover1.jpg", 
-                    mobileSrc: "M_Cover1.jpg",
-                    alt: "Cover 1" 
-                },
-                { 
-                    desktopSrc: "D_Cover2.jpg", 
-                    mobileSrc: "M_Cover2.jpg",
-                    alt: "Cover 2" 
-                },
-
+                { desktopSrc: "D_Cover1.jpg", mobileSrc: "M_Cover1.jpg", alt: "Cover 1" },
+                { desktopSrc: "D_Cover2.jpg", mobileSrc: "M_Cover2.jpg", alt: "Cover 2" },
             ];
 
             const galleryImages = [
-                { 
-                    desktopSrc: "D_", 
-                    mobileSrc: "M_Announcement1.jpg", 
-                    alt: "Gallery Image 1" 
-                },
-                { 
-                    desktopSrc: "D_", 
-                    mobileSrc: "M_Profile.jpg", 
-                    alt: "Gallery Image 1" 
-                },
-                { 
-                    desktopSrc: "D_", 
-                    mobileSrc: "M_cushion1.jpg", 
-                    alt: "Gallery Image 2" 
-                },
-                
-            ];
-            
-            const testimonials = [
-                { name: "Sreynith", image: "testimonial1.jpg", quote: "The Night Cream is amazing! My skin feels so soft and looks brighter every morning. Highly recommend!", time: "2h ago" },
-                { name: "Pisey", image: "testimonial2.jpg", quote: "I love the Sun Block. It's not sticky at all and works perfectly under my makeup. It's my new daily essential.", time: "1d ago" },
-                { name: "Bopha", image: "testimonial3.jpg", quote: "HK7's Cushion gives such a natural glow. The coverage is just right for me. Will definitely buy again!", time: "3d ago" }
+                { desktopSrc: "D_face1.jpg", mobileSrc: "M_Announcement1.jpg", alt: "Gallery Image 1" },
+                { desktopSrc: "D_face2.jpg", mobileSrc: "M_Profile.jpg", alt: "Gallery Image 2" },
+                { desktopSrc: "D_face3.jpg", mobileSrc: "M_cushion1.jpg", alt: "Gallery Image 3" },
+                { desktopSrc: "D_face4.jpg", mobileSrc: "M_cushion2.jpg", alt: "Gallery Image 4" },
             ];
 
             // --- Dynamic Content Population ---
@@ -541,26 +408,12 @@
             const productGrid = document.getElementById('product-grid');
             if (productGrid) {
                 products.forEach((product, index) => {
-                    
                     let priceDisplayHTML = '';
-
                     if (product.pricing.length > 1) {
-                        // Handle tiered pricing
-                        priceDisplayHTML = `
-                            <div class="my-2 text-sm text-left">
-                                <ul class="font-medium">
-                                    ${product.pricing.map(p => `<li>ទិញ <span class="font-bold">${p.quantity}</span> = <span class="text-red-500 font-bold text-base">$${p.price.toFixed(2)}</span></li>`).join('')}
-                                </ul>
-                            </div>
-                        `;
+                        priceDisplayHTML = `<div class="my-2 text-sm text-left"><ul class="font-medium space-y-1">${product.pricing.map(p => `<li>ទិញ <span class="font-bold">${p.quantity}</span> = <span class="text-red-500 font-bold text-base">$${p.price.toFixed(2)}</span> <span class="text-red-600 font-semibold">${p.bonus || ''}</span></li>`).join('')}</ul></div>`;
                     } else {
-                        // Handle single pricing
-                        const basePrice = (product.pricing.find(p => p.quantity === 1) || product.pricing[0]).price;
-                        priceDisplayHTML = `
-                            <div class="my-3 text-lg">
-                                <span class="text-red-500 font-bold ml-2">$${basePrice.toFixed(2)}</span>
-                            </div>
-                        `;
+                        const basePrice = product.pricing[0].price;
+                        priceDisplayHTML = `<div class="my-3 text-lg"><span class="text-red-500 font-bold ml-2">$${basePrice.toFixed(2)}</span></div>`;
                     }
 
                     productGrid.innerHTML += `
@@ -572,37 +425,11 @@
                                 <h3 class="text-xl font-semibold mb-2">${index + 1}. ${product.name}</h3>
                                 ${priceDisplayHTML}
                                 <div class="mt-auto flex items-center space-x-2">
-                                    <a href="https://www.facebook.com/hk7168cambodia" target="_blank" class="flex-1 text-center bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-900 transition-colors duration-300">Chat</a>
-                                    <button data-index="${index}" class="details-button flex-1 text-center bg-amber-500 text-white py-2 px-4 rounded-md hover:bg-amber-600 transition-colors duration-300">Details</button>
+                                    <a href="https://www.facebook.com/hk7168cambodia" target="_blank" class="flex-1 text-center bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-900 transition-colors duration-300">ទិញ</a>
+                                    <button data-index="${index}" class="details-button flex-1 text-center bg-amber-500 text-white py-2 px-4 rounded-md hover:bg-amber-600 transition-colors duration-300">ព័ត៌មានលម្អិត</button>
                                 </div>
                             </div>
-                        </div>
-                    `;
-                });
-            }
-
-            // Populate Testimonials
-            const testimonialGrid = document.getElementById('testimonial-grid');
-            if (testimonialGrid) {
-                testimonials.forEach(testimonial => {
-                    testimonialGrid.innerHTML += `
-                        <div class="flex items-start space-x-3">
-                            <img src="${testimonial.image}" alt="${testimonial.name}" class="w-10 h-10 rounded-full mt-1">
-                            <div class="flex-1">
-                                <div class="bg-gray-100 rounded-xl p-3">
-                                    <p class="font-semibold text-gray-800">${testimonial.name}</p>
-                                    <p class="text-gray-700">${testimonial.quote}</p>
-                                </div>
-                                <div class="text-xs text-gray-500 mt-1 px-3 flex items-center space-x-3">
-                                    <button class="hover:underline font-semibold">Like</button>
-                                    <span>·</span>
-                                    <button class="hover:underline font-semibold">Reply</button>
-                                    <span>·</span>
-                                    <span>${testimonial.time}</span>
-                                </div>
-                            </div>
-                        </div>
-                    `;
+                        </div>`;
                 });
             }
             
@@ -616,8 +443,7 @@
                              <source media="(max-width: 767px)" srcset="${image.mobileSrc}">
                              <img src="${image.desktopSrc}" alt="${image.alt}" class="w-full h-full object-cover">
                          </picture>
-                     </div>
-                     `;
+                     </div>`;
                  });
             }
 
@@ -628,21 +454,16 @@
             if (heroTrack) {
                 const slides = heroTrack.querySelectorAll('.slide');
                 let currentHeroIndex = 0;
-                
                 const showHeroSlide = (index) => {
-                    slides.forEach((slide, i) => {
-                        slide.classList.toggle('active', i === index);
-                    });
+                    slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
                 };
-
                 const nextHeroSlide = () => {
                     currentHeroIndex = (currentHeroIndex + 1) % slides.length;
                     showHeroSlide(currentHeroIndex);
                 };
-                
                 if (slides.length > 0) {
-                    showHeroSlide(0); // Show first slide initially
-                    setInterval(nextHeroSlide, 5000); // Change image every 5 seconds
+                    showHeroSlide(0);
+                    setInterval(nextHeroSlide, 5000);
                 }
             }
 
@@ -652,125 +473,74 @@
             if (sliderTrack && prevButton && nextButton) {
                 let currentIndex = 0;
                 let autoPlayInterval;
+                const slides = sliderTrack.querySelectorAll('.slide');
+                const totalSlides = slides.length;
                 const updateSlider = () => sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
-                const nextSlide = () => { currentIndex = (currentIndex + 1) % galleryImages.length; updateSlider(); };
-                const prevSlide = () => { currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length; updateSlider(); };
+                const nextSlide = () => { currentIndex = (currentIndex + 1) % totalSlides; updateSlider(); };
+                const prevSlide = () => { currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; updateSlider(); };
                 const startAutoPlay = () => { stopAutoPlay(); autoPlayInterval = setInterval(nextSlide, 4000); };
                 const stopAutoPlay = () => clearInterval(autoPlayInterval);
-                nextButton.addEventListener('click', () => { nextSlide(); startAutoPlay(); });
-                prevButton.addEventListener('click', () => { prevSlide(); startAutoPlay(); });
+                nextButton.addEventListener('click', () => { nextSlide(); stopAutoPlay(); startAutoPlay(); });
+                prevButton.addEventListener('click', () => { prevSlide(); stopAutoPlay(); startAutoPlay(); });
                 sliderTrack.parentElement.addEventListener('mouseenter', stopAutoPlay);
                 sliderTrack.parentElement.addEventListener('mouseleave', startAutoPlay);
-                startAutoPlay();
+                if (totalSlides > 0) startAutoPlay();
             }
 
-            // --- MODALS LOGIC (Announcement + Product Details) ---
-
+            // --- MODALS LOGIC ---
             const productModal = document.getElementById('product-modal');
             const announcementModal = document.getElementById('announcement-modal');
-            const closeProductModalButton = document.getElementById('close-modal-button');
-            const closeAnnouncementModalButton = document.getElementById('close-announcement-button');
-            const announcementShopNowButton = document.getElementById('announcement-shop-now');
-
-            // Visually close Product Modal
-            const visuallyCloseProductModal = () => {
-                if (productModal.classList.contains('hidden')) return;
-                productModal.querySelector('.modal-content').classList.add('scale-95', 'opacity-0');
-                productModal.classList.add('opacity-0');
-                setTimeout(() => productModal.classList.add('hidden'), 300);
-            };
-
-             // Visually close Announcement Modal
-            const visuallyCloseAnnouncementModal = () => {
-                if (announcementModal.classList.contains('hidden')) return;
-                announcementModal.querySelector('.modal-content').classList.add('scale-95', 'opacity-0');
-                announcementModal.classList.add('opacity-0');
-                setTimeout(() => announcementModal.classList.add('hidden'), 300);
-            };
-
-            // INITIATE closing Product Modal
-            const closeProductModal = () => {
-                if (location.hash === '#details') {
-                    history.back();
-                } else {
-                    visuallyCloseProductModal();
-                }
-            };
+            const closeModalButton = document.getElementById('close-modal-button');
+            const closeAnnouncementButton = document.getElementById('close-announcement-button');
             
-            // INITIATE closing Announcement Modal
-            const closeAnnouncementModal = () => {
-                 if (location.hash === '#announcement') {
-                    history.back();
-                } else {
-                    visuallyCloseAnnouncementModal();
-                }
+            const visuallyCloseModal = (modal) => {
+                if (!modal || modal.classList.contains('hidden')) return;
+                modal.querySelector('.modal-content').classList.add('scale-95', 'opacity-0');
+                modal.classList.add('opacity-0');
+                setTimeout(() => modal.classList.add('hidden'), 300);
             };
 
-            // Listen for browser back button action (popstate)
-            window.addEventListener('popstate', function() {
-                if (location.hash !== '#details') {
-                    visuallyCloseProductModal();
-                }
-                if (location.hash !== '#announcement') {
-                    visuallyCloseAnnouncementModal();
-                }
+            const closeModal = (modalType) => {
+                if (location.hash === `#${modalType}`) history.back();
+                else visuallyCloseModal(document.getElementById(`${modalType}-modal`));
+            };
+
+            window.addEventListener('popstate', () => {
+                if (location.hash !== '#details') visuallyCloseModal(productModal);
+                if (location.hash !== '#announcement') visuallyCloseModal(announcementModal);
             });
 
-            // Open Product Modal
             const openProductModal = (product, index) => {
                 const mainImage = document.getElementById('modal-product-image');
                 const thumbnailsContainer = document.getElementById('modal-product-thumbnails');
-
                 mainImage.src = product.images[0];
                 thumbnailsContainer.innerHTML = ''; 
 
                 product.images.forEach((imgSrc, i) => {
                     const thumb = document.createElement('img');
                     thumb.src = imgSrc;
-                    thumb.alt = `${product.name} thumbnail ${i + 1}`;
-                    thumb.className = 'w-16 h-16 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-amber-500 thumbnail-image';
-                    
-                    if (i === 0) {
-                        thumb.classList.add('border-amber-500');
-                    }
-
+                    thumb.className = `w-16 h-16 object-cover rounded-md cursor-pointer border-2 ${i === 0 ? 'border-amber-500' : 'border-transparent'} hover:border-amber-500 thumbnail-image`;
                     thumb.addEventListener('click', () => {
                         mainImage.src = imgSrc;
                         thumbnailsContainer.querySelectorAll('img').forEach(t => t.classList.remove('border-amber-500'));
                         thumb.classList.add('border-amber-500');
                     });
-
                     thumbnailsContainer.appendChild(thumb);
                 });
 
                 document.getElementById('modal-product-name').textContent = `${index + 1}. ${product.name}`;
-                
                 const priceContainer = document.getElementById('modal-product-price');
                 let priceHTML = '';
-
                 if (product.pricing.length > 1) {
-                    priceHTML += '<h4 class="text-xl font-semibold mb-2 text-gray-800">តម្លៃ:</h4>';
-                    priceHTML += '<ul class="space-y-1 text-lg list-disc list-inside text-gray-600">';
-                    product.pricing.forEach(p => {
-                        priceHTML += `<li>ទិញ ${p.quantity} = <span class="font-bold text-red-500">$${p.price.toFixed(2)}</span></li>`;
-                    });
-                    priceHTML += '</ul>';
-
+                    priceHTML = `<h4 class="text-xl font-semibold mb-2 text-gray-800">តម្លៃ:</h4><ul class="space-y-1 text-lg list-disc list-inside text-gray-600">${product.pricing.map(p => `<li>ទិញ ${p.quantity} = <span class="font-bold text-red-500">$${p.price.toFixed(2)}</span> <span class="text-red-600 font-semibold">${p.bonus || ''}</span></li>`).join('')}</ul>`;
                 } else {
-                    const singlePrice = product.pricing[0].price;
-                    let singlePriceHTML = `<span class="text-red-500 font-bold ml-2">$${singlePrice.toFixed(2)}</span>`;
-                    priceHTML = `<div class="text-3xl">${singlePriceHTML}</div>`;
+                    priceHTML = `<div class="text-3xl"><span class="text-red-500 font-bold ml-2">$${product.pricing[0].price.toFixed(2)}</span></div>`;
                 }
-
                 priceContainer.innerHTML = priceHTML;
-
-
                 document.getElementById('modal-product-description').innerHTML = product.description;
                 document.getElementById('modal-product-ingredients').textContent = product.ingredients || "";
+                document.getElementById('modal-product-ingredients').parentElement.style.display = product.ingredients ? 'block' : 'none';
                 
-                const ingredientsSection = document.getElementById('modal-product-ingredients').parentElement;
-                ingredientsSection.style.display = product.ingredients ? 'block' : 'none';
-
                 const videoSection = document.getElementById('modal-video-section');
                 if (product.videoUrl) {
                     document.getElementById('modal-product-video-link').href = product.videoUrl;
@@ -784,63 +554,37 @@
                     productModal.classList.remove('opacity-0');
                     productModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0');
                 }, 10);
-                
                 location.hash = 'details';
             };
 
-            // Show Announcement Modal (only once per session)
             const showAnnouncementModal = () => {
                 if (sessionStorage.getItem('announcementShown')) return;
-
                 announcementModal.classList.remove('hidden');
                 setTimeout(() => {
                     announcementModal.classList.remove('opacity-0');
                     announcementModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0');
                 }, 10);
-                
                 sessionStorage.setItem('announcementShown', 'true');
                 location.hash = 'announcement';
             };
 
             // --- EVENT LISTENERS ---
-            
-            // Add event listeners for all product cards/buttons
             function addProductEventListeners() {
-                document.querySelectorAll('.details-button').forEach(button => {
-                    button.addEventListener('click', () => {
-                        const productIndex = parseInt(button.dataset.index, 10);
-                        openProductModal(products[productIndex], productIndex);
-                    });
-                });
-
-                document.querySelectorAll('.product-image-container').forEach(container => {
-                    container.addEventListener('click', () => {
-                        const productIndex = parseInt(container.dataset.index, 10);
+                document.querySelectorAll('.details-button, .product-image-container').forEach(el => {
+                    el.addEventListener('click', () => {
+                        const productIndex = parseInt(el.dataset.index, 10);
                         openProductModal(products[productIndex], productIndex);
                     });
                 });
             }
-            if (productGrid) {
-                 addProductEventListeners();
-            }
+            if (productGrid) addProductEventListeners();
 
-            // Product Modal Close Buttons
-            closeProductModalButton.addEventListener('click', closeProductModal);
-            productModal.addEventListener('click', (e) => {
-                if (e.target === productModal) closeProductModal();
-            });
+            closeModalButton.addEventListener('click', () => closeModal('product'));
+            productModal.addEventListener('click', (e) => { if (e.target === productModal) closeModal('product'); });
+            closeAnnouncementButton.addEventListener('click', () => closeModal('announcement'));
+            document.getElementById('announcement-shop-now').addEventListener('click', () => visuallyCloseModal(announcementModal));
 
-            // Announcement Modal Close Buttons
-            closeAnnouncementModalButton.addEventListener('click', closeAnnouncementModal);
-            announcementShopNowButton.addEventListener('click', visuallyCloseAnnouncementModal);
-
-            // Show announcement modal after 1.5 seconds if no other modal is open
-            setTimeout(() => {
-                if (location.hash !== '#details') {
-                    showAnnouncementModal();
-                }
-            }, 1500);
-
+            setTimeout(() => { if (location.hash !== '#details') showAnnouncementModal(); }, 1500);
 
             // Mobile Menu Logic
             const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -857,7 +601,7 @@
                 let current = 'home';
                 const headerHeight = document.getElementById('header').offsetHeight;
                 sections.forEach(section => {
-                    if (pageYOffset >= section.offsetTop - headerHeight) {
+                    if (pageYOffset >= section.offsetTop - headerHeight - 20) {
                         current = section.getAttribute('id');
                     }
                 });
@@ -872,4 +616,3 @@
     </script>
 </body>
 </html>
-
